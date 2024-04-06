@@ -3,6 +3,8 @@ import React from 'react';
 const Home: React.FC = () => {
   return (
     <>
+
+     {/* Threadle */}
     <div>
       <div className='homediv'>
         <div className='homepallo'></div>
@@ -10,6 +12,7 @@ const Home: React.FC = () => {
       </div>
     </div>
 
+    {/* artist of the week */}
     <div className='artists-box'>
       <div className='artist-profile'>
         <h3 className='artist-week'>Artist of the week</h3>

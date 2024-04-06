@@ -7,19 +7,21 @@ const Layout: React.FC = () => {
       <nav>
         <h2 className='nav-text'>Threadle</h2>
         <ul className="ul">
-          <li className="li">Home</li>
-          <li className="li">About</li>
-          <li className="li">Contact</li>
+          <li className="li">
+            <img src={'../public/search.svg'} alt="search" />
+          </li>
+          <li className="li">
+            <img src={'../public/notification-filled.svg'} alt="notification" />
+            </li>
+          <li className="li">
+          <img src={'../public/nav-menu.svg'} alt="menu" />
+          </li>
         </ul>
       </nav>
     </header>
-
-    <main className="mainpage">
-    </main>
-
+    <main className="mainpage"></main>
       <footer className="footer">
-
-        <p>© 2024</p>
+      <p>© 2024</p>
       </footer>
     </>
   );
