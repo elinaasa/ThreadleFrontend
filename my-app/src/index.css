@@ -28,7 +28,7 @@ body {
 .ul{
   display: flex;
   justify-content: end;
-  margin-top: -10px;
+  margin-top: -30px;
 }
 
 .li{
@@ -54,15 +54,20 @@ body {
   background-color: #fff;
 }
 
+.nav-text{
+  display: block;
+  text-align: start;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 0;
+
+}
+
 .mainpage{
   width: 100%;
 }
 
-.nav-text{
-  display: block;
-  text-align: start;
-  margin: auto;
-}
+
 
 
 /* Home css*/
@@ -71,6 +76,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 200px;
+  margin-bottom: 100px;
 }
 
 .homepallo{
@@ -81,5 +87,52 @@ body {
 }
 
 .home-text{
-  margin-left: -30px;
+  margin-left: -40px;
+  font-size: 50px;
+}
+
+.artists-box {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  margin: 30px;
+  border: 2px solid rgb(50, 50, 50);
+  padding: 10px;
+}
+
+.artist-profile {
+  text-align: start;
+  margin-right: 20px;
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.artist-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.artist-text {
+  font-size: 14px;
+  width: 60%;
+}
+
+.artist-week {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.artist-photo {
+  margin-left: 20px;
+}
+
+.photo {
+  width: 200px;
+  height: 200px;
 }
