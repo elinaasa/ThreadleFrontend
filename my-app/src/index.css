@@ -134,3 +134,34 @@ body {
   width: 200px;
   height: 200px;
 }
+
+
+/* menu ul/ui css */
+
+
+
+.menu-ul {
+  list-style: none;
+  display: block;
+  justify-self: start;
+}
+
+.menu-li {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  padding: 5px;
+  width: 200px;
+}
+
+.menu-img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.menu-a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #1E1E1E;
+}

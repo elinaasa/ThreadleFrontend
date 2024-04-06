@@ -1,12 +1,16 @@
-import Layout from './views/Layout';
 import Home from './views/Home';
+import Layout from './views/Layout';
+{/*import Menu from './views/Menu';*/}
 
   const App = () => {
     return (
       <>
-      <Home />
       <Layout />
+      {/*<Menu />*/}
+      <Home />
+
       </>
+
 
     );
   };
