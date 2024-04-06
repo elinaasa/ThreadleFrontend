@@ -2,26 +2,26 @@ import React from 'react';
 
 const Layout: React.FC = () => {
   return (
-    <div>
+  <>
+    <header className='navbar'>
       <nav>
-        {/* Navbar content */}
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+        <h2 className='nav-text'>Treadle</h2>
+        <ul className="ul">
+          <li className="li">Home</li>
+          <li className="li">About</li>
+          <li className="li">Contact</li>
         </ul>
       </nav>
+    </header>
 
-      <main>
-        {/* Main content */}
-        <h1>mainpage content</h1>
-      </main>
+    <main className="mainpage">
+    </main>
 
-      <footer>
-        {/* Footer content */}
+      <footer className="footer">
+
         <p>© 2024</p>
       </footer>
-    </div>
+    </>
   );
 };
 
