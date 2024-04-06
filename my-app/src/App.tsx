@@ -1,9 +1,10 @@
 import './App.css';
-const App = () => {
-  return (
-    <>
-      <h1>My App</h1>
-    </>
-  );
-};
+import Layout from './views/Layout';
+
+  const App = () => {
+    return (
+      <Layout />
+    );
+  };
+
 export default App;
