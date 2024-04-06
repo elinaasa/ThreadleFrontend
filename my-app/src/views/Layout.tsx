@@ -5,7 +5,7 @@ const Layout: React.FC = () => {
   <>
     <header className='navbar'>
       <nav>
-        <h2 className='nav-text'>Treadle</h2>
+        <h2 className='nav-text'>Threadle</h2>
         <ul className="ul">
           <li className="li">Home</li>
           <li className="li">About</li>
