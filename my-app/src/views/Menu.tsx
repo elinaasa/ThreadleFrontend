@@ -2,6 +2,7 @@ import React from 'react';
 
 const Menu: React.FC = () => {
   return (
+    <>
     <ul className="menu-ul">
       <li className='menu-li'>
         <img className='menu-img' src="../public/keyboard-enter-return.svg" alt="back" />
@@ -38,6 +39,7 @@ const Menu: React.FC = () => {
         <a className='menu-a' href="#messages">Messages</a>
       </li>
     </ul>
+    </>
   );
 };
 

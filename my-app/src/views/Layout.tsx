@@ -6,14 +6,14 @@ const Layout: React.FC = () => {
     <header className='navbar'>
       <nav>
         <h2 className='nav-text'>Threadle</h2>
-        <ul className="ul">
-          <li className="li">
+        <ul className="nav-ul">
+          <li className="nav-li">
             <img src={'../public/search.svg'} alt="search" />
           </li>
-          <li className="li">
+          <li className="nav-li">
             <img src={'../public/notification-filled.svg'} alt="notification" />
             </li>
-          <li className="li">
+          <li className="nav-li">
           <img src={'../public/nav-menu.svg'} alt="menu" />
           </li>
         </ul>

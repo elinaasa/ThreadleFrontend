@@ -23,13 +23,13 @@ body {
 
 /* Layout css*/
 
-.ul{
+.nav-ul{
   display: flex;
   justify-content: end;
   margin-top: -30px;
 }
 
-.li{
+.nav-li{
   display: block;
   text-align: center;
   margin-right: 15px;
@@ -135,23 +135,23 @@ body {
   height: 200px;
 }
 
-
 /* menu ul/ui css */
-
-
 
 .menu-ul {
   list-style: none;
-  display: block;
-  justify-self: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: nowrap ;
+  padding: 0%;
 }
 
 .menu-li {
-  display: flex;
-  align-items: center;
-  margin-right: 15px;
-  padding: 5px;
-  width: 200px;
+  padding: 10px;
+  padding: 10px;
+  align-self: center;
+  padding: 10px;
 }
 
 .menu-img {
@@ -164,4 +164,5 @@ body {
   text-decoration: none;
   font-size: 20px;
   color: #1E1E1E;
+  text-align: center;
 }
