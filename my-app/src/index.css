@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #1E1E1E;
+  background-color: #fff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,56 +13,158 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+.blocks{
+  margin: auto;
 }
 
 body {
   margin: 0;
+}
+
+img {
+  width: 200px;
+}
+
+/* Layout css*/
+
+.nav-ul{
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: end;
+  margin-top: -30px;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.nav-li{
+  display: block;
+  text-align: center;
+  margin-right: 15px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.footer{
+  border: #1E1E1E;
+  border-top: 2px solid black;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  text-align: center;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.navbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 2px solid black;
+  background-color: #fff;
+}
+
+.nav-text{
+  display: block;
+  text-align: start;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 0;
+
+}
+
+.mainpage{
+  width: 100%;
+}
+
+
+/* Home css*/
+.homediv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
+
+.homepallo{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ECA57D;
+}
+
+.home-text{
+  margin-left: -40px;
+  font-size: 50px;
+}
+
+.artists-box {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  margin: 30px;
+  border: 2px solid rgb(50, 50, 50);
+  padding: 10px;
+}
+
+.artist-profile {
+  text-align: start;
+  margin-right: 20px;
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.artist-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.artist-text {
+  font-size: 14px;
+  width: 60%;
+}
+
+.artist-week {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.artist-photo {
+  margin-left: 20px;
+}
+
+.photo {
+  width: 200px;
+  height: 200px;
+}
+
+/* menu ul/ui css */
+
+.menu-ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: nowrap ;
+  padding: 0%;
+}
+
+.menu-li {
+  padding: 10px;
+  padding: 10px;
+  align-self: center;
+  padding: 10px;
+}
+
+.menu-img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.menu-a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #1E1E1E;
+  text-align: center;
 }

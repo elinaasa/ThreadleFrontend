@@ -1,4 +1,4 @@
-import MediaRow from './MediaRow';
+import MediaRow from '../components/MediaRow';
 import { MediaItem } from '../types/DBtypes';
 
 const Home = () => {
@@ -41,19 +41,10 @@ const Home = () => {
   //console.log(mediaArray);
 
   return (
+
     <>
-      <h2>My Media</h2>
+      <h2>Threadle</h2>
       <table>
-        <thead>
-          <tr>
-            <th>Thumbnail</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Created</th>
-            <th>Size</th>
-            <th>Type</th>
-          </tr>
-        </thead>
         <tbody>
           {mediaArray.map((item) => <MediaRow key={item.media_id} mediaItem={item} />)}
         </tbody>
