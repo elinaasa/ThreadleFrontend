@@ -54,7 +54,7 @@ const Home = () => {
         <div className="artist-profile">
           <h3 className="artist-week">Artist of the week</h3>
           <img
-            src="\artist.png"
+            src="public\artist.png"
             alt="Profile Photo"
             className="profile-photo"
           />
@@ -65,7 +65,7 @@ const Home = () => {
           </p>
         </div>
         <div className="artist-photo">
-          <img src="artist-photo.jpg" alt="Artist Photo" className="photo" />
+          <img src='artist-photo.jpg'/>
         </div>
       </div>
       <table>

@@ -9,18 +9,18 @@ const Layout: React.FC = () => {
           <h2 className="nav-text">Threadle</h2>
           <Link to="/">Home</Link>
           <ul className="nav-ul">
-            <li className="nav-li">
+            <li>
               <img src={'../public/search.svg'} alt="search" />
               <Link to="/search">Search</Link>
             </li>
-            <li className="nav-li">
+            <li>
               <img
-                src={'../public/notification-filled.svg'}
+                src={'/..public/notification-filled.svg'}
                 alt="notifications"
               />
               <Link to="/notifications">Notifications</Link>
             </li>
-            <li className="nav-li">
+            <li>
               <img src={'../public/nav-menu.svg'} alt="menu" />
               <Link to="/menu">Menu</Link>
             </li>
