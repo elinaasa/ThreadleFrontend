@@ -42,12 +42,11 @@ const Home = () => {
 
   return (
     <>
-      <div>
+      <div className="home">
         <div className="homediv">
           <div className="homepallo"></div>
           <h1 className="home-text">Threadle</h1>
         </div>
-      </div>
 
       {/* artist of the week */}
       <div className="artists-box">
@@ -75,6 +74,7 @@ const Home = () => {
           ))}
         </tbody>
       </table>
+    </div>
     </>
   );
 };
