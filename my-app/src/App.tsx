@@ -1,19 +1,13 @@
 import Home from './views/Home';
 import Layout from './views/Layout';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {Route, BrowserRouter as Router, Routes} from 'react-router-dom';
 
 const App = () => {
-
-
   return (
-    <Router basename={import.meta.env.BASE_URL}>
+    <Router>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/upload" element={<Upload />} />
-          <Route path="/single" element={<Single />} />
-        </Route>
+        <Route path="/layout" element={<Layout />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </Router>
   );

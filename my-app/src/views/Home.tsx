@@ -1,5 +1,5 @@
 import MediaRow from '../components/MediaRow';
-import { MediaItem } from '../types/DBtypes';
+import {MediaItem} from '../types/DBtypes';
 
 const Home = () => {
   const mediaArray: MediaItem[] = [
@@ -41,12 +41,38 @@ const Home = () => {
   //console.log(mediaArray);
 
   return (
-
     <>
-      <h2>Threadle</h2>
+      <div>
+        <div className="homediv">
+          <div className="homepallo"></div>
+          <h1 className="home-text">Threadle</h1>
+        </div>
+      </div>
+
+      {/* artist of the week */}
+      <div className="artists-box">
+        <div className="artist-profile">
+          <h3 className="artist-week">Artist of the week</h3>
+          <img
+            src="\artist.png"
+            alt="Profile Photo"
+            className="profile-photo"
+          />
+          <h1 className="artist-name">Artist Name</h1>
+          <p className="artist-text">
+            Some text about the artist. Lorem Ipsum is simply dummy text of the
+            printing and typesetting industry.
+          </p>
+        </div>
+        <div className="artist-photo">
+          <img src="artist-photo.jpg" alt="Artist Photo" className="photo" />
+        </div>
+      </div>
       <table>
         <tbody>
-          {mediaArray.map((item) => <MediaRow key={item.media_id} mediaItem={item} />)}
+          {mediaArray.map((item) => (
+            <MediaRow key={item.media_id} mediaItem={item} />
+          ))}
         </tbody>
       </table>
     </>

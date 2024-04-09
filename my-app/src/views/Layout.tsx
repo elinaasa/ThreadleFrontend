@@ -1,29 +1,35 @@
-import {Link, Outlet} from "react-router-dom";
+import React from 'react';
+import {Link} from 'react-router-dom';
 
-const Layout = () => {
+const Layout: React.FC = () => {
   return (
     <>
-      <header>
-        <h1>My app</h1>
+      <header className="navbar">
         <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
+          <h2 className="nav-text">Threadle</h2>
+          <Link to="/">Home</Link>
+          <ul className="nav-ul">
+            <li className="nav-li">
+              <img src={'../public/search.svg'} alt="search" />
+              <Link to="/search">Search</Link>
             </li>
-            <li>
-              <Link to="/profile">Profile</Link>
+            <li className="nav-li">
+              <img
+                src={'../public/notification-filled.svg'}
+                alt="notifications"
+              />
+              <Link to="/notifications">Notifications</Link>
             </li>
-            <li>
-              <Link to="/upload">Upload</Link>
+            <li className="nav-li">
+              <img src={'../public/nav-menu.svg'} alt="menu" />
+              <Link to="/menu">Menu</Link>
             </li>
           </ul>
         </nav>
       </header>
-      <main>
-        <Outlet />
-      </main>
+      <main></main>
       <footer>
-        <p>Copyright 2024 - NN</p>
+        <p>© 2024</p>
       </footer>
     </>
   );
