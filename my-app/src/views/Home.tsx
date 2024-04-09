@@ -54,7 +54,7 @@ const Home = () => {
         <div className="artist-profile">
           <h3 className="artist-week">Artist of the week</h3>
           <img
-            src="public\artist.png"
+            src="\artist.png"
             alt="Profile Photo"
             className="profile-photo"
           />

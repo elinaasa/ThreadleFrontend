@@ -21,10 +21,6 @@ body {
   margin: 0;
 }
 
-img {
-  width: 200px;
-}
-
 /* Layout css*/
 
 .nav-ul{
@@ -68,6 +64,8 @@ img {
 .mainpage{
   width: 100%;
 }
+
+
 
 
 /* Home css*/

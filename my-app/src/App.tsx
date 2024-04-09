@@ -1,16 +1,18 @@
+import { Link } from 'react-router-dom';
 import Home from './views/Home';
 import Layout from './views/Layout';
-import {Route, BrowserRouter as Router, Routes} from 'react-router-dom';
+import Menu from './views/Menu';
 
-const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/layout" element={<Layout />} />
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </Router>
-  );
-};
+  const App = () => {
+    return (
+      <>
+      <Layout />
+      <Home />
+
+      </>
+
+
+    );
+  };
 
 export default App;
