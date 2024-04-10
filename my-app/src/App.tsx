@@ -10,12 +10,12 @@ import { UpdateProvider } from './contexts/UpdateContext';
     return (
       <>
           <Router basename={import.meta.env.BASE_URL}>
-            <UpdateProvider>
+          <UpdateProvider>
           <Routes>
             <Route element={<Layout />}>
-            <Route path="/Home" element={<Home />} />
-              <Route path="/single" element={<Single />} />
-              <Route path="/upload" element={<Upload />} />
+            <Route path="/" element={<Home />} />
+              <Route path="/Single" element={<Single />} />
+              <Route path="/Upload" element={<Upload />} />
               <Route path="/Menu" element={<Menu />} />
 
 
