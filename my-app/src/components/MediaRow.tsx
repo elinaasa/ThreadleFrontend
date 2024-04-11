@@ -1,6 +1,6 @@
-import {MediaItem} from "../types/DBtypes";
+import {PostItem} from '../types/DBtypes';
 
-const MediaRow = (props: {mediaItem: MediaItem}) => {
+const MediaRow = (props: {mediaItem: PostItem}) => {
   const item = props.mediaItem;
   return (
     <tr className="media-row">
