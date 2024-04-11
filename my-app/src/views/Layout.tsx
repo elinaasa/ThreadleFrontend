@@ -19,7 +19,7 @@ const Layout = () => {
               </Link>
             </li>
             <li className="nav-li">
-              <Link to="/profile">
+              <Link to="/login">
                 <img src={'../person.svg'} alt="profile" />
               </Link>
             </li>
