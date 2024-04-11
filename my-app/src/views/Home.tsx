@@ -1,10 +1,10 @@
 import MediaRow from '../components/MediaRow';
-import {MediaItem} from '../types/DBtypes';
+import {PostItem} from '../types/DBtypes';
 
 const Home = () => {
-  const mediaArray: MediaItem[] = [
+  const mediaArray: PostItem[] = [
     {
-      media_id: 8,
+      post_id: 8,
       user_id: 5,
       filename: 'https://place-hold.it/1200x800.jpg&text=Pic1&fontsize=120',
       thumbnail: 'http://place-hold.it/320/240.jpg&text=Thumb2&fontsize=20',
@@ -15,7 +15,7 @@ const Home = () => {
       created_at: '2024-01-07T20:49:34.000Z',
     },
     {
-      media_id: 9,
+      post_id: 9,
       user_id: 7,
       filename: 'https://place-hold.it/800x600.jpg&text=Pic2&fontsize=72',
       thumbnail: 'http://place-hold.it/320/240.jpg&text=Thumb3&fontsize=20',
@@ -26,7 +26,7 @@ const Home = () => {
       created_at: '2024-01-07T21:32:27.000Z',
     },
     {
-      media_id: 17,
+      post_id: 17,
       user_id: 2,
       filename:
         'http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_60fps_normal.mp4',
@@ -48,33 +48,33 @@ const Home = () => {
           <h1 className="home-text">Threadle</h1>
         </div>
 
-      {/* artist of the week */}
-      <div className="artists-box">
-        <div className="artist-profile">
-          <h3 className="artist-week">Artist of the week</h3>
-          <img
-            src="\artist.png"
-            alt="Profile Photo"
-            className="profile-photo"
-          />
-          <h1 className="artist-name">Artist Name</h1>
-          <p className="artist-text">
-            Some text about the artist. Lorem Ipsum is simply dummy text of the
-            printing and typesetting industry.
-          </p>
+        {/* artist of the week */}
+        <div className="artists-box">
+          <div className="artist-profile">
+            <h3 className="artist-week">Artist of the week</h3>
+            <img
+              src="\artist.png"
+              alt="Profile Photo"
+              className="profile-photo"
+            />
+            <h1 className="artist-name">Artist Name</h1>
+            <p className="artist-text">
+              Some text about the artist. Lorem Ipsum is simply dummy text of
+              the printing and typesetting industry.
+            </p>
+          </div>
+          <div className="artist-photo">
+            <img src="artist-photo.jpg" />
+          </div>
         </div>
-        <div className="artist-photo">
-          <img src='artist-photo.jpg'/>
-        </div>
+        <table>
+          <tbody>
+            {mediaArray.map((item) => (
+              <MediaRow key={item.post_id} mediaItem={item} />
+            ))}
+          </tbody>
+        </table>
       </div>
-      <table>
-        <tbody>
-          {mediaArray.map((item) => (
-            <MediaRow key={item.media_id} mediaItem={item} />
-          ))}
-        </tbody>
-      </table>
-    </div>
     </>
   );
 };

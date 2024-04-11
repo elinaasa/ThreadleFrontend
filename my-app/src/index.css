@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #1E1E1E;
+  color: #1e1e1e;
   background-color: #fff;
 
   font-synthesis: none;
@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.blocks{
+.blocks {
   margin: auto;
 }
 
@@ -23,20 +23,20 @@ body {
 
 /* Layout css*/
 
-.nav-ul{
+.nav-ul {
   display: flex;
   justify-content: end;
   margin-top: -30px;
 }
 
-.nav-li{
+.nav-li {
   display: block;
   text-align: center;
   margin-right: 15px;
 }
 
-.footer{
-  border: #1E1E1E;
+.footer {
+  border: #1e1e1e;
   border-top: 2px solid black;
   width: 100%;
   justify-content: center;
@@ -44,7 +44,7 @@ body {
   text-align: center;
 }
 
-.navbar{
+.navbar {
   position: fixed;
   top: 0;
   width: 100%;
@@ -52,16 +52,15 @@ body {
   background-color: #fff;
 }
 
-.nav-text{
+.nav-text {
   display: block;
   text-align: start;
   margin-top: 10px;
   margin-left: 10px;
   margin-bottom: 0;
-
 }
 
-.mainpage{
+.mainpage {
   width: 100%;
 }
 
@@ -79,7 +78,6 @@ tbody {
 
 td {
   padding: 0 0 1rem 1rem;
-
 }
 
 td img {
@@ -107,7 +105,6 @@ td a {
   width: 85%;
   max-width: 600px;
   border: 2px solid rgb(50, 50, 50);
-
 }
 
 .media-row h2 {
@@ -119,17 +116,16 @@ td a {
   padding: 0 0 1rem 1rem;
 }
 
-
 /* Home css*/
 
-.home{
+.home {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.homediv{
+.homediv {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,19 +133,19 @@ td a {
   margin-bottom: 100px;
 }
 
-.homepallo{
+.homepallo {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #ECA57D;
+  background-color: #eca57d;
 }
 
-.home-text{
+.home-text {
   margin-left: -40px;
   font-size: 50px;
 }
 
-.artists-box{
+.artists-box {
   background-color: var(--white-smoke);
   margin: 1rem;
   padding: 0.5rem;
@@ -206,7 +202,7 @@ td a {
   flex-direction: column;
   justify-content: center;
   align-content: flex-start;
-  flex-wrap: nowrap ;
+  flex-wrap: nowrap;
   padding: 0%;
 }
 
@@ -226,6 +222,6 @@ td a {
 .menu-a {
   text-decoration: none;
   font-size: 20px;
-  color: #1E1E1E;
+  color: #1e1e1e;
   text-align: center;
 }
