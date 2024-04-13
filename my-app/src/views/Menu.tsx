@@ -4,27 +4,49 @@ const Menu = () => {
   return (
     <div>
       <h1>Menu</h1>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
+      <ul className='menu-ul'>
+        <li className='menu-li'>
+          <Link to="/">
+          <img className='menu-img' src={'../home.svg'} alt="home" />
+            Home
+          </Link>
         </li>
-        <li>
-          <Link to="/Profile">Profile</Link>
+        <li className='menu-li'>
+          <Link to="/Profile">
+          <img className='menu-img' src={'../person.svg'} alt="Profile" />
+            Profile
+          </Link>
         </li>
-        <li>
-          <Link to="/Notifications">Notifications</Link>
+        <li className='menu-li menu-li-1'>
+          <Link to="/Notifications">
+          <img className='menu-img ' src={'../notification bell.svg'} alt="Notifications" />
+            Notifications
+          </Link>
         </li>
-        <li>
-          <Link to="/Settings">Settings</Link>
+        <li className='menu-li menu-li-2'>
+          <Link to="/Settings">
+            <img className='menu-img' src={'../settings cog.svg'} alt="settings" />
+            Settings
+          </Link>
         </li>
-        <li>
-          <Link to="Search">Search</Link>
+        <li className='menu-li '>
+          <Link to="Search">
+          <img className='menu-img' src={'../search30.svg'} alt="search" />
+            Search
+          </Link>
         </li>
-        <li>
-          <Link to="Messages">Messages</Link>
+        <li className='menu-li menu-li-3'>
+          <Link to="Messages">
+          <img className='menu-img' src={'../chat.svg'} alt="chat" />
+            Messages
+          </Link>
         </li>
-        <li>
-          <Link to="/Logout">Logout</Link>
+        <li className='menu-li menu-li-4'>
+
+          <Link to="/Logout">
+          <img className='menu-img' src={'../keyboard-enter-return.svg'} alt="settings" />
+            Logout
+          </Link>
         </li>
       </ul>
     </div>

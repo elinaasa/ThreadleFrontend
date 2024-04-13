@@ -211,17 +211,33 @@ td a {
   padding: 10px;
   align-self: center;
   padding: 10px;
+
 }
 
-.menu-img {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-}
-
-.menu-a {
+a {
   text-decoration: none;
-  font-size: 20px;
-  color: #1e1e1e;
-  text-align: center;
+  color: black;
+}
+
+
+.menu-li-1{
+  margin-left: 42px;
+}
+
+.menu-li-2{
+  margin-left: 10px;
+}
+.menu-li-3{
+  margin-left: 20px;
+}
+
+.menu-li-4{
+  margin-top: 20px;
+  margin-left: 5px;
+}
+
+
+.menu-img{
+  margin-bottom: -8px;
+  padding-right: 10px;
 }
