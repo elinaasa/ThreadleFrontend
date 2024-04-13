@@ -140,7 +140,8 @@ body {
 
 .artist-profile {
   text-align: start;
-  margin-right: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
 .profile-photo {
@@ -148,6 +149,7 @@ body {
   height: 100px;
   border-radius: 50%;
   margin-top: 20px;
+  margin-left: 10px;
 }
 
 .artist-name {
@@ -157,7 +159,7 @@ body {
 
 .artist-text {
   font-size: 14px;
-  width: 60%;
+  width: 70%;
 }
 
 .artist-week {
@@ -168,18 +170,12 @@ body {
 
 .artist-img {
   object-fit: cover;
+  width: 300px;
+  height: 300px;
+  padding: 20px;
 }
 
 
-.artist-img-1{
-  width: 150px;
-  height: 150px;
-}
-
-.artist-img-3{
-  width: 150px;
-  height: 150px;
-}
 
 /* Media-item card*/
 
@@ -231,4 +227,19 @@ td a {
 
 .media-row h3 {
   padding: 0 0 1rem 1rem;
+}
+
+
+@media screen and (max-width: 700px) {
+  .container {
+   display: block;
+   padding: 20px;
+  }
+  .artist-img{
+    padding: 0px;
+    padding-left: 10px;
+    width: 270px;
+    height: 270px;
+  }
+
 }
