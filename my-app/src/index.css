@@ -26,7 +26,7 @@ body {
 .nav-ul {
   display: flex;
   justify-content: end;
-  margin-top: -30px;
+  margin: -30px 0 2px;
 }
 
 .nav-li {
@@ -58,10 +58,127 @@ body {
   margin-top: 10px;
   margin-left: 10px;
   margin-bottom: 0;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 25px;
+  letter-spacing: 0.15000000596046448px;
+  text-align: left;
+
+}
+
+.nav-icons{
+  margin-top: 8px;
 }
 
 .mainpage {
   width: 100%;
+}
+
+/* Home css*/
+.container {
+  display: flex;
+  box-sizing: border-box; /* Includes padding and border in the width */
+  background-color: var(--white-smoke);
+  width: 600px;
+
+}
+
+.inner-div-left {
+  width: 400px;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.homediv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
+
+.homepallo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #eca57d;
+}
+
+.home-text {
+  margin-left: -55px;
+  overflow: hidden;
+  color: #000;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #000;
+  font-family: "Rozha One";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.artists-box {
+  background-color: var(--white-smoke);
+  margin: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 85%;
+  max-width: 600px;
+  border: 2px solid rgb(50, 50, 50);
+}
+
+.artist-profile {
+  text-align: start;
+  margin-right: 20px;
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.artist-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.artist-text {
+  font-size: 14px;
+  width: 60%;
+}
+
+.artist-week {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.artist-img {
+  object-fit: cover;
+}
+
+
+.artist-img-1{
+  width: 150px;
+  height: 150px;
+}
+
+.artist-img-3{
+  width: 150px;
+  height: 150px;
 }
 
 /* Media-item card*/
@@ -114,130 +231,4 @@ td a {
 
 .media-row h3 {
   padding: 0 0 1rem 1rem;
-}
-
-/* Home css*/
-
-.home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.homediv {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 200px;
-  margin-bottom: 100px;
-}
-
-.homepallo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #eca57d;
-}
-
-.home-text {
-  margin-left: -40px;
-  font-size: 50px;
-}
-
-.artists-box {
-  background-color: var(--white-smoke);
-  margin: 1rem;
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 85%;
-  max-width: 600px;
-  border: 2px solid rgb(50, 50, 50);
-}
-
-.artist-profile {
-  text-align: start;
-  margin-right: 20px;
-}
-
-.profile-photo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-top: 20px;
-}
-
-.artist-name {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.artist-text {
-  font-size: 14px;
-  width: 60%;
-}
-
-.artist-week {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.artist-photo {
-  margin-left: 20px;
-}
-
-.photo {
-  width: 200px;
-  height: 200px;
-}
-
-/* menu ul/ui css */
-
-.menu-ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: flex-start;
-  flex-wrap: nowrap;
-  padding: 0%;
-}
-
-.menu-li {
-  padding: 10px;
-  padding: 10px;
-  align-self: center;
-  padding: 10px;
-
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-
-.menu-li-1{
-  margin-left: 42px;
-}
-
-.menu-li-2{
-  margin-left: 10px;
-}
-.menu-li-3{
-  margin-left: 20px;
-}
-
-.menu-li-4{
-  margin-top: 20px;
-  margin-left: 5px;
-}
-
-
-.menu-img{
-  margin-bottom: -8px;
-  padding-right: 10px;
 }

@@ -3,9 +3,8 @@ import {Link} from 'react-router-dom';
 const Menu = () => {
   return (
     <div>
-      <h1>Menu</h1>
       <ul className='menu-ul'>
-        <li className='menu-li'>
+        <li className='menu-li menu-li-5'>
           <Link to="/">
           <img className='menu-img' src={'../home.svg'} alt="home" />
             Home

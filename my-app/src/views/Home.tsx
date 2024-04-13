@@ -47,8 +47,36 @@ const Home = () => {
           <div className="homepallo"></div>
           <h1 className="home-text">Threadle</h1>
         </div>
+      <div className="artists-box">
+        <div className="container">
+          <div className="inner-div-left">
+          <div className="artist-profile">
+            <h3 className="artist-week">Artist of the week</h3>
+            <img
+              src="\artist.png"
+              alt="Profile Photo"
+              className="profile-photo"
+            />
+            <h1 className="artist-name">Artist Name</h1>
+            <p className="artist-text">
+              Some text about the artist. Lorem Ipsum is simply dummy text of
+              the printing and typesetting industry.
+            </p>
+            </div>
+          </div>
 
-        {/* artist of the week */}
+          <div className="inner-div">
+
+            <img className='artist-img artist-img-1' src="artist_1.jpg" />
+
+            <img className='artist-img artist-img-3' src="artist_3.jpg" />
+
+
+        </div>
+        </div>
+        </div>
+
+        {/* artist of the week*/}
         <div className="artists-box">
           <div className="artist-profile">
             <h3 className="artist-week">Artist of the week</h3>
@@ -64,9 +92,13 @@ const Home = () => {
             </p>
           </div>
           <div className="artist-photo">
-            <img src="artist-photo.jpg" />
+            <img className='artist-img artist-img-1' src="artist_1.jpg" />
+
+            <img className='artist-img artist-img-3' src="artist_3.jpg" />
           </div>
         </div>
+
+
         <table>
           <tbody>
             {mediaArray.map((item) => (

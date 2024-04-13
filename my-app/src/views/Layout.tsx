@@ -6,14 +6,18 @@ const Layout = () => {
     <>
       <header className="navbar">
         <nav>
-          <h2 className="nav-text">Threadle</h2>
+          <h2 className="nav-text">
+            <Link to="/">
+            Threadle
+            </Link>
+          </h2>
           <ul className="nav-ul">
-            <li className="nav-li">
+            <li className="nav-li nav-icons">
               <Link to="/search">
                 <img src={'../search.svg'} alt="search" />
               </Link>
             </li>
-            <li className="nav-li">
+            <li className="nav-li nav-icons">
               <Link to="/notifications">
                 <img src={'../notification-filled.svg'} alt="notification" />
               </Link>
@@ -23,7 +27,7 @@ const Layout = () => {
                 <img src={'../person.svg'} alt="profile" />
               </Link>
             </li>
-            <li className="nav-li">
+            <li className="nav-li nav-icons">
               <Link to="/menu">
                 <img src={'../nav-menu.svg'} alt="menu" />
               </Link>

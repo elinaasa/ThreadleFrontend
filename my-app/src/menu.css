@@ -1,0 +1,47 @@
+
+/* menu ul/ui css */
+
+.menu-ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: nowrap;
+  padding: 0%;
+}
+
+.menu-li {
+  padding: 10px;
+  padding: 10px;
+  align-self: center;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+.menu-li-1{
+  margin-left: 42px;
+}
+
+.menu-li-2{
+  margin-left: 10px;
+}
+.menu-li-3{
+  margin-left: 20px;
+}
+
+.menu-li-4{
+  margin: 20px 5px 20px;
+}
+
+.menu-li-5{
+  margin-top: 70px;
+}
+
+.menu-img{
+  margin-bottom: -8px;
+  padding-right: 10px;
+}
