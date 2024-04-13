@@ -69,6 +69,7 @@ const Home = () => {
         </div>
         </div>
         </div>
+
         <table>
           <tbody>
             {mediaArray.map((item) => (
