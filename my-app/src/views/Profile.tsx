@@ -37,15 +37,15 @@ const Profile = () => {
 
           <div className="p-box">
             <div className="container">
-
                <div className="inner-div">
                  <img className='highlight-img' src="artist_3.jpg" />
                </div>
            <div className="p-profile">
             <h3 className="highlight-text" >highlight</h3>
             <p className="highlight-text">
-
-             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis totam libero labore, unde eius culpa non et voluptas omnis veritatis quod excepturi id ipsa sit doloribus nulla quisquam. Expedita, inventore.
+             Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+             Nobis totam libero labore, unde eius culpa non et voluptas omnis veritatis
+             quod excepturi id ipsa sit doloribus nulla quisquam. Expedita, inventore.
             </p>
            </div>
           </div>
