@@ -9,6 +9,7 @@
   align-content: flex-start;
   flex-wrap: nowrap;
   padding: 0%;
+  height: 100vh;
 }
 
 .menu-li {
@@ -37,9 +38,6 @@ a {
   margin: 20px 5px 20px;
 }
 
-.menu-li-5{
-  margin-top: 70px;
-}
 
 .menu-img{
   margin-bottom: -8px;

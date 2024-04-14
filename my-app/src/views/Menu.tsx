@@ -4,7 +4,7 @@ const Menu = () => {
   return (
     <div>
       <ul className='menu-ul'>
-        <li className='menu-li menu-li-5'>
+        <li className='menu-li'>
           <Link to="/">
           <img className='menu-img' src={'../home.svg'} alt="home" />
             Home
