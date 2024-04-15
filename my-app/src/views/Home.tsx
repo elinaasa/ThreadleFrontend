@@ -1,11 +1,8 @@
 import MediaRow from '../components/MediaRow';
-import {PostItem} from '../types/DBtypes';
-import SingleView from '../components/SingleView';
-import {useState} from 'react';
+import {MediaItemWithOwner, PostItem} from '../types/DBtypes';
 
 const Home = () => {
-  const [selectedItem, setSelectedItem] = useState<PostItem | undefined>();
-  const mediaArray: PostItem[] = [
+  const mediaArray: MediaItemWithOwner[] = [
     {
       post_id: 8,
       user_id: 5,
@@ -16,6 +13,7 @@ const Home = () => {
       title: 'Picture 1',
       description: 'This is a placeholder picture.',
       created_at: '2024-01-07T20:49:34.000Z',
+      username: 'user5',
     },
     {
       post_id: 9,
@@ -27,6 +25,7 @@ const Home = () => {
       title: 'Pic 2',
       description: '',
       created_at: '2024-01-07T21:32:27.000Z',
+      username: 'user7',
     },
     {
       post_id: 17,
@@ -39,15 +38,13 @@ const Home = () => {
       title: 'Bunny',
       description: 'Butterflies fly around the bunny.',
       created_at: '2024-01-07T20:48:13.000Z',
+      username: 'user2',
     },
   ];
   //console.log(mediaArray);
 
   return (
     <>
-      {selectedItem && (
-        <SingleView item={selectedItem} setSelectedItem={setSelectedItem} />
-      )}
       <div className="home">
         <div className="homediv">
           <div className="homepallo"></div>
@@ -79,11 +76,7 @@ const Home = () => {
         <table>
           <tbody>
             {mediaArray.map((item) => (
-              <MediaRow
-                key={item.post_id}
-                mediaItem={item}
-                setSelectedItem={setSelectedItem}
-              />
+              <MediaRow key={item.post_id} item={item} />
             ))}
           </tbody>
         </table>
