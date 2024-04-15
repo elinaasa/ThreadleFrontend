@@ -9,6 +9,7 @@ type User = {
   password: string;
   email: string;
   user_level_id: number;
+  description: string;
   user_activity: 'Active' | 'Away' | 'Do not disturb';
   created_at: Date | string;
 };

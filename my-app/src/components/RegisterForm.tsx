@@ -13,6 +13,7 @@ const RegisterForm = () => {
     try {
       if (usernameAvailable && emailAvailable) {
         await postUser(inputs);
+        alert('User registered');
       }
     } catch (error) {
       console.log((error as Error).message);

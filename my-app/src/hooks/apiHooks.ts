@@ -32,8 +32,64 @@ const useMedia = () => {
       );
       setMediaArray(itemsWithOwner);
       console.log('mediaArray updated:', itemsWithOwner);
+      return itemsWithOwner;
     } catch (error) {
       console.error('getMedia failed', error);
+      return null;
+    }
+  };
+  const getMyMedia = async (user_id: number) => {
+    try {
+      const postItems = await fetchData<PostItem[]>(
+        import.meta.env.VITE_MEDIA_API + '/media/all/' + user_id,
+      );
+      // Get usernames (file owners) for all media files from auth api
+      const itemsWithOwner: MediaItemWithOwner[] = await Promise.all(
+        postItems.map(async (item) => {
+          const owner = await fetchData<User>(
+            import.meta.env.VITE_AUTH_API + '/users/' + item.user_id,
+          );
+          const itemWithOwner: MediaItemWithOwner = {
+            ...item,
+            username: owner.username,
+          };
+          return itemWithOwner;
+        }),
+      );
+      setMediaArray(itemsWithOwner);
+      console.log('mediaArray updated:', itemsWithOwner);
+      return itemsWithOwner;
+    } catch (error) {
+      console.error('getMedia failed', error);
+      return null;
+    }
+  };
+  const getHighlightById = async (id: number) => {
+    try {
+      const postItem = await fetchData<PostItem>(
+        import.meta.env.VITE_MEDIA_API + '/media/highlight/' + id,
+      );
+      console.log('postItems', postItem);
+      // Get usernames (file owners) for all media files from auth api
+      const owner = await fetchData<User>(
+        import.meta.env.VITE_AUTH_API + '/users/' + postItem.user_id,
+      );
+      const itemWithOwner: MediaItemWithOwner = {
+        created_at: postItem.created_at,
+        description: postItem.description,
+        filename: postItem.filename,
+        filesize: postItem.filesize,
+        media_type: postItem.media_type,
+        post_id: postItem.post_id,
+        thumbnail: postItem.thumbnail,
+        title: postItem.title,
+        user_id: postItem.user_id,
+        username: owner.username,
+      };
+      return itemWithOwner;
+    } catch (error) {
+      console.error('getHighlightById failed', error);
+      return null;
     }
   };
 
@@ -75,7 +131,7 @@ const useMedia = () => {
     );
   };
 
-  return {mediaArray, postMedia};
+  return {mediaArray, getHighlightById, getMyMedia, getMedia, postMedia};
 };
 
 const useUser = () => {

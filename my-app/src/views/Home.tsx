@@ -1,4 +1,6 @@
+import {useEffect, useState} from 'react';
 import MediaRow from '../components/MediaRow';
+import {useMedia} from '../hooks/apiHooks';
 import {MediaItemWithOwner} from '../types/DBtypes';
 
 const Home = () => {
@@ -41,7 +43,19 @@ const Home = () => {
       username: 'user2',
     },
   ];
-  //console.log(mediaArray);
+  const {getMedia} = useMedia();
+  const [media, setMedia] = useState<MediaItemWithOwner[] | null>([]);
+
+  const fetchData = async () => {
+    const media = await getMedia();
+    if (media) {
+      setMedia(media);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -75,9 +89,8 @@ const Home = () => {
 
         <table>
           <tbody>
-            {mediaArray.map((item) => (
-              <MediaRow key={item.post_id} item={item} />
-            ))}
+            {media &&
+              media.map((item) => <MediaRow key={item.post_id} item={item} />)}
           </tbody>
         </table>
       </div>
