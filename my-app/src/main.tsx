@@ -4,6 +4,7 @@ import App from './App.tsx';
 import './index.css';
 import './menu.css';
 import './profile.css';
+import './upload.css';
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />

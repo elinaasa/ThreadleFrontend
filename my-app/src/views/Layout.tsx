@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import {Link} from 'react-router-dom';
 import {Outlet} from 'react-router-dom';
+{/*import NavMenu from '../components/NavMenu';*/}
 
 const Layout = () => {
+  const [showMenu, setShowMenu] = useState(false);
   return (
     <>
       <header className="navbar">
@@ -28,14 +31,20 @@ const Layout = () => {
               </Link>
             </li>
             <li className="nav-li nav-icons">
-              <Link to="/menu">
+              <div onClick={() => setShowMenu(!showMenu)}>
+              {/*<Link to="/menu">*/}
                 <img src={'../nav-menu.svg'} alt="menu" />
-              </Link>
+
+    </div>
+              {/*</Link>*/}
             </li>
           </ul>
         </nav>
       </header>
       <Outlet />
+      {showMenu && (
+        {/*<NavMenu showMenu={showMenu} setShowMenu={setShowMenu} />*/}
+      )}
 
       <main className="mainpage"></main>
       <footer className="footer">

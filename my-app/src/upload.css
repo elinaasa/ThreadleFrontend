@@ -1,0 +1,9 @@
+.up-div{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255,255,255);
+  text-align: center;
+}

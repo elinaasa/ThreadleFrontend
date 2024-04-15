@@ -1,10 +1,9 @@
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-const Menu = () => {
-  return (
-    <div>
+const NavMenu = (showMenu:boolean, setShowMenu: React.Dispatch<React.SetStateAction<boolean>>)=>{
+<div>
       <ul className='menu-ul'>
-      <li className='menu-li menu-li-5'>
+      <li onClick={()=>setShowMenu(!showMenu)} className='menu-li menu-li-5'>
           <Link to="/">
           <img className='menu-img' src={'../keyboard-enter-return.svg'} alt="back" />
             Back
@@ -55,7 +54,5 @@ const Menu = () => {
         </li>
       </ul>
     </div>
-  );
-};
-
-export default Menu;
+}
+export default NavMenu;
