@@ -1,5 +1,5 @@
 import MediaRow from '../components/MediaRow';
-import {MediaItemWithOwner, PostItem} from '../types/DBtypes';
+import {MediaItemWithOwner} from '../types/DBtypes';
 
 const Home = () => {
   const mediaArray: MediaItemWithOwner[] = [
