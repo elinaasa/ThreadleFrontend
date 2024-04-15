@@ -1,7 +1,10 @@
 import MediaRow from '../components/MediaRow';
 import {PostItem} from '../types/DBtypes';
+import SingleView from '../components/SingleView';
+import {useState} from 'react';
 
 const Home = () => {
+  const [selectedItem, setSelectedItem] = useState<PostItem | undefined>();
   const mediaArray: PostItem[] = [
     {
       post_id: 8,
@@ -42,38 +45,45 @@ const Home = () => {
 
   return (
     <>
+      {selectedItem && (
+        <SingleView item={selectedItem} setSelectedItem={setSelectedItem} />
+      )}
       <div className="home">
         <div className="homediv">
           <div className="homepallo"></div>
           <h1 className="home-text">Threadle</h1>
         </div>
-      <div className="artists-box">
-        <div className="container">
-          <div className="inner-div-left">
-          <div className="artist-profile">
-            <h3 className="artist-week">Artist of the week</h3>
-            <img
-              src="\artist.png"
-              alt="Profile Photo"
-              className="profile-photo"
-            />
-            <h1 className="artist-name">Artist Name</h1>
-            <p className="artist-text">
-              Some text about the artist. Lorem Ipsum is simply dummy text of
-              the printing and typesetting industry.
-            </p>
+        <div className="artists-box">
+          <div className="container">
+            <div className="inner-div-left">
+              <div className="artist-profile">
+                <h3 className="artist-week">Artist of the week</h3>
+                <img
+                  src="\artist.png"
+                  alt="Profile Photo"
+                  className="profile-photo"
+                />
+                <h1 className="artist-name">Artist Name</h1>
+                <p className="artist-text">
+                  Some text about the artist. Lorem Ipsum is simply dummy text
+                  of the printing and typesetting industry.
+                </p>
+              </div>
+            </div>
+            <div className="inner-div">
+              <img className="artist-img artist-img-3" src="artist_3.jpg" />
             </div>
           </div>
-          <div className="inner-div">
-            <img className='artist-img artist-img-3' src="artist_3.jpg" />
-        </div>
-        </div>
         </div>
 
         <table>
           <tbody>
             {mediaArray.map((item) => (
-              <MediaRow key={item.post_id} mediaItem={item} />
+              <MediaRow
+                key={item.post_id}
+                mediaItem={item}
+                setSelectedItem={setSelectedItem}
+              />
             ))}
           </tbody>
         </table>
