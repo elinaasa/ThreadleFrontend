@@ -4,8 +4,9 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #1E1E1E;
+  color: #1e1e1e;
   background-color: #fff;
+  --white-smoke: #f5f5f5;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,7 +14,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.blocks{
+.blocks {
   margin: auto;
 }
 
@@ -23,20 +24,20 @@ body {
 
 /* Layout css*/
 
-.nav-ul{
+.nav-ul {
   display: flex;
   justify-content: end;
-  margin-top: -30px;
+  margin: -30px 0 2px;
 }
 
-.nav-li{
+.nav-li {
   display: block;
   text-align: center;
   margin-right: 15px;
 }
 
-.footer{
-  border: #1E1E1E;
+.footer {
+  border: #1e1e1e;
   border-top: 2px solid black;
   width: 100%;
   justify-content: center;
@@ -44,7 +45,7 @@ body {
   text-align: center;
 }
 
-.navbar{
+.navbar {
   position: fixed;
   top: 0;
   width: 100%;
@@ -52,18 +53,133 @@ body {
   background-color: #fff;
 }
 
-.nav-text{
+.nav-text {
   display: block;
   text-align: start;
   margin-top: 10px;
   margin-left: 10px;
   margin-bottom: 0;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 25px;
+  letter-spacing: 0.15000000596046448px;
+  text-align: left;
 
 }
 
-.mainpage{
+.nav-icons{
+  margin-top: 8px;
+}
+
+.mainpage {
   width: 100%;
 }
+
+/* Home css*/
+.container {
+  display: flex;
+  box-sizing: border-box; /* Includes padding and border in the width */
+  width: 600px;
+
+}
+
+.inner-div-left {
+  width: 400px;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255,255,255);
+}
+
+.homediv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
+.homepallo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #eca57d;
+
+}
+
+.home-text {
+  margin-left: -55px;
+  overflow: hidden;
+  color: #000;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #000;
+  font-family: "Rozha One";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.artists-box {
+  background-color: var(--white-smoke);
+  margin: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 85%;
+  max-width: 600px;
+  border: 2px solid rgb(50, 50, 50);
+  background-color: var(--white-smoke);
+}
+
+.artist-profile {
+  text-align: start;
+  padding-left: 20px;
+  padding-top: 10px;
+
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.artist-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.artist-text {
+  font-size: 14px;
+  width: 70%;
+}
+
+.artist-week {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.artist-img {
+  object-fit: cover;
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+}
+
+
 
 /* Media-item card*/
 
@@ -79,7 +195,6 @@ tbody {
 
 td {
   padding: 0 0 1rem 1rem;
-
 }
 
 td img {
@@ -107,7 +222,6 @@ td a {
   width: 85%;
   max-width: 600px;
   border: 2px solid rgb(50, 50, 50);
-
 }
 
 .media-row h2 {
@@ -120,112 +234,16 @@ td a {
 }
 
 
-/* Home css*/
+@media screen and (max-width: 700px) {
+  .container {
+   display: block;
+   padding: 20px;
+  }
+  .artist-img{
+    padding: 0px;
+    padding-left: 10px;
+    width: 270px;
+    height: 270px;
+  }
 
-.home{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.homediv{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 200px;
-  margin-bottom: 100px;
-}
-
-.homepallo{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #ECA57D;
-}
-
-.home-text{
-  margin-left: -40px;
-  font-size: 50px;
-}
-
-.artists-box{
-  background-color: var(--white-smoke);
-  margin: 1rem;
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 85%;
-  max-width: 600px;
-  border: 2px solid rgb(50, 50, 50);
-}
-
-.artist-profile {
-  text-align: start;
-  margin-right: 20px;
-}
-
-.profile-photo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-top: 20px;
-}
-
-.artist-name {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.artist-text {
-  font-size: 14px;
-  width: 60%;
-}
-
-.artist-week {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.artist-photo {
-  margin-left: 20px;
-}
-
-.photo {
-  width: 200px;
-  height: 200px;
-}
-
-/* menu ul/ui css */
-
-.menu-ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: flex-start;
-  flex-wrap: nowrap ;
-  padding: 0%;
-}
-
-.menu-li {
-  padding: 10px;
-  padding: 10px;
-  align-self: center;
-  padding: 10px;
-}
-
-.menu-img {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-}
-
-.menu-a {
-  text-decoration: none;
-  font-size: 20px;
-  color: #1E1E1E;
-  text-align: center;
 }

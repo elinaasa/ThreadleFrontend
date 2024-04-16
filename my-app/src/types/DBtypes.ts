@@ -1,6 +1,6 @@
 type UserLevel = {
   level_id: number;
-  level_name: 'Admin' | 'User' | 'Guest';
+  level_name: 'Admin' | 'Buyer' | 'Seller' | 'Guest';
 };
 
 type User = {
@@ -9,11 +9,13 @@ type User = {
   password: string;
   email: string;
   user_level_id: number;
+  description: string;
+  user_activity: 'Active' | 'Away' | 'Do not disturb';
   created_at: Date | string;
 };
 
-type MediaItem = {
-  media_id: number;
+type PostItem = {
+  post_id: number;
   user_id: number;
   filename: string;
   thumbnail: string;
@@ -24,24 +26,64 @@ type MediaItem = {
   created_at: Date | string;
 };
 
+type Chats = {
+  chat_id: number;
+  sender_id: number;
+  receiver_id: number;
+  created_at: Date | string;
+};
+type ChatMessages = {
+  message_id: number;
+  chat_id: number;
+  sender_id: number;
+  receiver_id: number;
+  message: string;
+  created_at: Date | string;
+};
+
+type Friend = {
+  freindship_id: number;
+  sender_id: number;
+  receiver_id: number;
+  created_at: Date | string;
+  status: 'pending' | 'accepted' | 'declined';
+};
+
+type Theme = {
+  theme_id: number;
+  user_id: number;
+  color1: string;
+  color2: string;
+  color3: string;
+  color4: string;
+  created_at: Date | string;
+};
+
 type Comment = {
   comment_id: number;
-  media_id: number;
+  post_id: number;
   user_id: number;
   comment_text: string;
   created_at: Date;
 };
+type CommentReplies = {
+  reply_id: number;
+  comment_id: number;
+  user_id: number;
+  message: string;
+  created_at: Date;
+};
 
-type Like = {
-  like_id: number;
-  media_id: number;
+type Save = {
+  save_id: number;
+  post_id: number;
   user_id: number;
   created_at: Date;
 };
 
 type Rating = {
   rating_id: number;
-  media_id: number;
+  post_id: number;
   user_id: number;
   rating_value: number;
   created_at: Date;
@@ -52,12 +94,12 @@ type Tag = {
   tag_name: string;
 };
 
-type MediaItemTag = {
-  media_id: number;
+type PostItemTag = {
+  post_id: number;
   tag_id: number;
 };
 
-type TagResult = MediaItemTag & Tag;
+type TagResult = PostItemTag & Tag;
 
 type UploadResult = {
   message: string;
@@ -67,8 +109,8 @@ type UploadResult = {
 };
 
 type MostLikedMedia = Pick<
-  MediaItem,
-  | 'media_id'
+  PostItem,
+  | 'post_id'
   | 'filename'
   | 'filesize'
   | 'media_type'
@@ -88,7 +130,7 @@ type UserWithNoPassword = Omit<UserWithLevel, 'password'>;
 
 type TokenContent = Pick<User, 'user_id'> & Pick<UserLevel, 'level_name'>;
 
-type MediaItemWithOwner = MediaItem & Pick<User, 'username'>;
+type MediaItemWithOwner = PostItem & Pick<User, 'username'>;
 
 // for upload server
 type FileInfo = {
@@ -99,12 +141,12 @@ type FileInfo = {
 export type {
   UserLevel,
   User,
-  MediaItem,
+  PostItem,
   Comment,
-  Like,
+  Save,
   Rating,
   Tag,
-  MediaItemTag,
+  PostItemTag,
   TagResult,
   UploadResult,
   MostLikedMedia,
@@ -113,4 +155,9 @@ export type {
   TokenContent,
   MediaItemWithOwner,
   FileInfo,
+  ChatMessages,
+  Chats,
+  CommentReplies,
+  Theme,
+  Friend,
 };
