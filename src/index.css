@@ -1,0 +1,249 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #1e1e1e;
+  background-color: #fff;
+  --white-smoke: #f5f5f5;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.blocks {
+  margin: auto;
+}
+
+body {
+  margin: 0;
+}
+
+/* Layout css*/
+
+.nav-ul {
+  display: flex;
+  justify-content: end;
+  margin: -30px 0 2px;
+}
+
+.nav-li {
+  display: block;
+  text-align: center;
+  margin-right: 15px;
+}
+
+.footer {
+  border: #1e1e1e;
+  border-top: 2px solid black;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 2px solid black;
+  background-color: #fff;
+}
+
+.nav-text {
+  display: block;
+  text-align: start;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 0;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 25px;
+  letter-spacing: 0.15000000596046448px;
+  text-align: left;
+
+}
+
+.nav-icons{
+  margin-top: 8px;
+}
+
+.mainpage {
+  width: 100%;
+}
+
+/* Home css*/
+.container {
+  display: flex;
+  box-sizing: border-box; /* Includes padding and border in the width */
+  width: 600px;
+
+}
+
+.inner-div-left {
+  width: 400px;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255,255,255);
+}
+
+.homediv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
+.homepallo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #eca57d;
+
+}
+
+.home-text {
+  margin-left: -55px;
+  overflow: hidden;
+  color: #000;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-text-stroke-width: 1;
+  -webkit-text-stroke-color: #000;
+  font-family: "Rozha One";
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.artists-box {
+  background-color: var(--white-smoke);
+  margin: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 85%;
+  max-width: 600px;
+  border: 2px solid rgb(50, 50, 50);
+  background-color: var(--white-smoke);
+}
+
+.artist-profile {
+  text-align: start;
+  padding-left: 20px;
+  padding-top: 10px;
+
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.artist-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.artist-text {
+  font-size: 14px;
+  width: 70%;
+}
+
+.artist-week {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.artist-img {
+  object-fit: cover;
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+}
+
+
+
+/* Media-item card*/
+
+table {
+  width: 100%;
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+td {
+  padding: 0 0 1rem 1rem;
+}
+
+td img {
+  width: 90%;
+  max-width: 600px;
+  object-fit: cover;
+}
+
+td a {
+  color: var(--ghost-white);
+  text-decoration: none;
+  background-color: var(--tomato);
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.media-row {
+  background-color: var(--white-smoke);
+  margin: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 85%;
+  max-width: 600px;
+  border: 2px solid rgb(50, 50, 50);
+}
+
+.media-row h2 {
+  color: var(--cinnabar);
+  margin: 10px 0 10px 0;
+}
+
+.media-row h3 {
+  padding: 0 0 1rem 1rem;
+}
+
+
+@media screen and (max-width: 700px) {
+  .container {
+   display: block;
+   padding: 20px;
+  }
+  .artist-img{
+    padding: 0px;
+    padding-left: 10px;
+    width: 270px;
+    height: 270px;
+  }
+
+}
