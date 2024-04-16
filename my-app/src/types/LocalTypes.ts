@@ -1,4 +1,4 @@
-import {User, UserWithNoPassword} from './DBtypes';
+import {ChatMessages, User, UserWithNoPassword} from './DBtypes';
 export type Credentials = Pick<User, 'username' | 'password'>;
 
 export type AuthContextType = {
@@ -6,4 +6,12 @@ export type AuthContextType = {
   handleLogin: (credentials: Credentials) => void;
   handleLogout: () => void;
   handleAutoLogin: () => void;
+};
+
+export type ChatContextType = {
+  chatMessages: ChatMessages[];
+  chatId: number | null;
+  handleSetChatId: (id: number) => void;
+  handleGetChatMessages: () => void;
+  handleAddChatMessage: (token: string, message: string) => void;
 };

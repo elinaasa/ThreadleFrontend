@@ -18,6 +18,12 @@ type LoginResponse = MessageResponse & {
   message: string;
   user: UserWithNoPassword;
 };
+type ChatResponse = {
+  chat_id: number;
+  sender_id: number;
+  receiver_id: number;
+  created_at: Date | string;
+};
 
 type UserResponse = MessageResponse & {
   user: UserWithNoPassword;
@@ -44,4 +50,5 @@ export type {
   UploadResponse,
   UserResponse,
   UserDeleteResponse,
+  ChatResponse,
 };

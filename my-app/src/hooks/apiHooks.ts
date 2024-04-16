@@ -1,10 +1,18 @@
 import {useEffect, useState} from 'react';
-import {PostItem, MediaItemWithOwner, User} from '../types/DBtypes';
+import {
+  PostItem,
+  MediaItemWithOwner,
+  User,
+  UserWithNoPassword,
+  ChatMessages,
+} from '../types/DBtypes';
 import {fetchData} from '../lib/functions';
 import {Credentials} from '../types/LocalTypes';
 import {
+  ChatResponse,
   LoginResponse,
   MediaResponse,
+  MessageResponse,
   UploadResponse,
   UserResponse,
 } from '../types/MessageTypes';
@@ -147,6 +155,11 @@ const useUser = () => {
       options,
     );
   };
+  const getUserById = async (id: number) => {
+    return await fetchData<UserWithNoPassword>(
+      import.meta.env.VITE_AUTH_API + '/users/' + id,
+    );
+  };
 
   const postUser = async (user: Record<string, string>) => {
     const options: RequestInit = {
@@ -175,7 +188,13 @@ const useUser = () => {
     );
   };
 
-  return {getUserByToken, postUser, getUsernameAvailable, getEmailAvailable};
+  return {
+    getUserByToken,
+    getUserById,
+    postUser,
+    getUsernameAvailable,
+    getEmailAvailable,
+  };
 };
 
 const useAuthentication = () => {
@@ -215,4 +234,56 @@ const useFile = () => {
   return {postFile};
 };
 
-export {useMedia, useUser, useAuthentication, useFile};
+const useChat = () => {
+  // const [chatMessages, setChatMessages] = useState<ChatMessage[]>([]);
+
+  // Chat conversations
+  const getChatConversations = async (token: string) => {
+    const options: RequestInit = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+    };
+    const chats = await fetchData<ChatResponse[]>(
+      import.meta.env.VITE_MEDIA_API + '/chat',
+      options,
+    );
+    // setChatMessages(messages);
+    return chats;
+  };
+
+  // Messages
+  const getChatMessages = async (id: number) => {
+    const messages = await fetchData<ChatMessages[]>(
+      import.meta.env.VITE_MEDIA_API + '/chat/message/' + id,
+    );
+    // setChatMessages(messages);
+    return messages;
+  };
+
+  const addChatMessage = async (token: string, message: string, id: number) => {
+    const options: RequestInit = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+      body: JSON.stringify({message}),
+    };
+    const messageRes = await fetchData<MessageResponse>(
+      import.meta.env.VITE_MEDIA_API + '/chat/message/' + id,
+      options,
+    );
+    return messageRes;
+  };
+
+  return {
+    getChatMessages,
+    addChatMessage,
+    getChatConversations,
+  };
+};
+
+export {useMedia, useChat, useUser, useAuthentication, useFile};
