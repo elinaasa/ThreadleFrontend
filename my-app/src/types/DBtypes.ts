@@ -1,3 +1,5 @@
+import {MediaResponse} from './MessageTypes';
+
 type UserLevel = {
   level_id: number;
   level_name: 'Admin' | 'Buyer' | 'Seller' | 'Guest';
@@ -145,8 +147,11 @@ type FileInfo = {
   user_id: number;
 };
 
+type NewMediaResponse = MediaResponse & {media: PostItem};
+
 export type {
   UserLevel,
+  NewMediaResponse,
   User,
   PostItem,
   Comment,

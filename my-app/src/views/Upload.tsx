@@ -1,15 +1,34 @@
 import React, {useEffect, useState} from 'react';
-import {useForm} from '../hooks/formHooks';
 import {useNavigate} from 'react-router-dom';
 import {useUserContext} from '../hooks/ContextHooks';
-import {useFile, useMedia} from '../hooks/apiHooks';
+import {useForm} from '../hooks/formHooks';
+import {useFile, useMedia, useTags} from '../hooks/apiHooks';
+
+const tags = [
+  // If changed change in Search.tsx
+  'Beadwork',
+  'Crocheting',
+  'Knitting',
+  'Macrame',
+  'Quilting',
+  'Sewing',
+  'Spinning',
+  'Weaving',
+  'Woodworking',
+  'Metalworking',
+  'Pottery',
+  'Glassblowing',
+  'Jewelry',
+];
 
 const Upload = () => {
   const [file, setFile] = useState<File | null>(null);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const {handleAutoLogin} = useUserContext();
   const {postMedia} = useMedia();
   const {postFile} = useFile();
-
+  const {postTag} = useTags();
+  // const [tags, setTags] = useState<TagResult[] | null>([]);
   const navigate = useNavigate();
 
   const initValues = {
@@ -27,6 +46,11 @@ const Upload = () => {
       console.log('fileresult', fileResult);
       const mediaResult = await postMedia(fileResult, inputs, token);
       console.log(mediaResult);
+      selectedTags.map(async (tag) => {
+        console.log('tag', mediaResult.media.post_id, tag, token);
+        const tagResult = await postTag(mediaResult.media.post_id, tag, token);
+        console.log(tagResult);
+      });
       navigate('/');
     } catch (e) {
       console.log((e as Error).message);
@@ -39,6 +63,21 @@ const Upload = () => {
     }
   };
 
+  useEffect(() => {
+    console.log('selected', selectedTags);
+  }, [selectedTags]);
+
+  // const fetchTags = async () => {
+  //   const tags = await getTags();
+  //   setTags(tags);
+  // };
+  const handleTagsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedOptions = Array.from(e.target.options)
+      .filter((option) => option.selected)
+      .map((option) => option.value);
+    setSelectedTags(selectedOptions);
+  };
+
   const {handleSubmit, handleInputChange, inputs} = useForm(
     doSubmit,
     initValues,
@@ -46,6 +85,7 @@ const Upload = () => {
 
   useEffect(() => {
     handleAutoLogin();
+    // fetchTags();
   }, []);
 
   return (
@@ -110,6 +150,21 @@ const Upload = () => {
               )}
             </div>
           )}
+          <div className="upload-tags">
+            <label htmlFor="tags">Tags</label>
+            <select
+              id="tags"
+              multiple
+              value={selectedTags}
+              onChange={handleTagsChange}
+            >
+              {tags?.map((tag, index) => (
+                <option key={tag + '-' + index} value={tag}>
+                  {tag}
+                </option>
+              ))}
+            </select>
+          </div>
           <div className="">
             <button
               className=""

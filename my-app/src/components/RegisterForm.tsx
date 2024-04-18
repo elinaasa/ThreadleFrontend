@@ -2,7 +2,8 @@ import {useState} from 'react';
 import {useUser} from '../hooks/apiHooks';
 import {useForm} from '../hooks/formHooks';
 
-const RegisterForm = () => {
+const RegisterForm = (params: {toggleShowLogin: () => void}) => {
+  const {toggleShowLogin} = params;
   const {postUser} = useUser();
   const [usernameAvailable, setUsernameAvailable] = useState<boolean>(true);
   const [emailAvailable, setEmailAvailable] = useState<boolean>(true);
@@ -40,7 +41,7 @@ const RegisterForm = () => {
 
   console.log(usernameAvailable, emailAvailable);
   return (
-    <>
+    <div className="p-header">
       <h3 className="text-3xl">Register</h3>
       <form onSubmit={handleSubmit} className="flex flex-col text-center">
         <div className="flex w-4/5">
@@ -103,7 +104,8 @@ const RegisterForm = () => {
           </button>
         </div>
       </form>
-    </>
+      <button onClick={toggleShowLogin}>I already have an account</button>
+    </div>
   );
 };
 

@@ -13,7 +13,7 @@ const ChatsMenu = () => {
 
   const [conversations, setConversations] = useState<ChatResponse[]>([]);
   const [chatUsers, setChatUsers] = useState<(UserWithNoPassword | null)[]>([]);
-  const {user, handleAutoLogin} = useUserContext();
+  const {user} = useUserContext();
 
   const fetchChats = async () => {
     try {
@@ -54,10 +54,6 @@ const ChatsMenu = () => {
     handleSetChatId(chat_id);
     navigate(`/messages`);
   };
-
-  useEffect(() => {
-    handleAutoLogin();
-  }, []);
 
   useEffect(() => {
     if (user) {

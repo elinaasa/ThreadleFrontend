@@ -32,16 +32,24 @@ const Menu = (params: {closeMenu: () => void}) => {
           </Link>
         </li>
         {user && (
-          <li onClick={closeMenu} className="menu-li menu-li-1">
-            <Link to="/Notifications">
-              <img
-                className="menu-img "
-                src={'../notification bell.svg'}
-                alt="Notifications"
-              />
-              Notifications
-            </Link>
-          </li>
+          <>
+            <li onClick={closeMenu} className="menu-li">
+              <Link to="/Upload">
+                <img className="menu-img" src={'../person.svg'} alt="Profile" />
+                Upload
+              </Link>
+            </li>
+            <li onClick={closeMenu} className="menu-li menu-li-1">
+              <Link to="/Notifications">
+                <img
+                  className="menu-img "
+                  src={'../notification bell.svg'}
+                  alt="Notifications"
+                />
+                Notifications
+              </Link>
+            </li>
+          </>
         )}
         <li onClick={closeMenu} className="menu-li menu-li-2">
           <Link to="/Settings">

@@ -3,11 +3,13 @@ import {Outlet} from 'react-router-dom';
 import Menu from '../components/Menu';
 import {useEffect, useState} from 'react';
 import {useNotifications} from '../hooks/apiHooks';
+import {useUserContext} from '../hooks/ContextHooks';
 
 const Layout = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showNotificationPopup, setShowNotificationPopup] = useState(false);
   const {getNotifications} = useNotifications();
+  const {handleAutoLogin} = useUserContext();
 
   const closeMenu = () => {
     setShowMenu(false);
@@ -27,6 +29,11 @@ const Layout = () => {
   useEffect(() => {
     fetchNotifications();
   }, []);
+
+  useEffect(() => {
+    handleAutoLogin();
+  }, []);
+
   return (
     <>
       <header className="navbar">

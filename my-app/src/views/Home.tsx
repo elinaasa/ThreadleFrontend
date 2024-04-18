@@ -49,7 +49,8 @@ const Home = () => {
   const fetchData = async () => {
     const media = await getMedia();
     if (media) {
-      setMedia(media);
+      const invertedMedia = media.reverse();
+      setMedia(invertedMedia);
     }
   };
 

@@ -91,12 +91,14 @@ const Profile = () => {
           <div className="grid-container">
             {myMedia &&
               myMedia.map((item) => (
-                <img
-                  key={item.post_id}
-                  className="p-images"
-                  src={item.thumbnail}
-                  alt={item.title}
-                />
+                <Link to="/single" state={item}>
+                  <img
+                    key={item.post_id}
+                    className="p-images"
+                    src={item.thumbnail}
+                    alt={item.title}
+                  />
+                </Link>
               ))}
             {/* <img className="p-images" src="../artist_3.jpg" alt="image1" />
             <img className="p-images" src="../artist_2.jpg" alt="image2" />

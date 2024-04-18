@@ -6,13 +6,14 @@ import {
   UserWithNoPassword,
   ChatMessages,
   Notification,
+  TagResult,
+  NewMediaResponse,
 } from '../types/DBtypes';
 import {fetchData} from '../lib/functions';
 import {Credentials} from '../types/LocalTypes';
 import {
   ChatResponse,
   LoginResponse,
-  MediaResponse,
   MessageResponse,
   UploadResponse,
   UserResponse,
@@ -134,13 +135,43 @@ const useMedia = () => {
       },
       body: JSON.stringify(media),
     };
-    return fetchData<MediaResponse>(
+    return fetchData<NewMediaResponse>(
       import.meta.env.VITE_MEDIA_API + '/media',
       options,
     );
   };
 
-  return {mediaArray, getHighlightById, getMyMedia, getMedia, postMedia};
+  const getMediaById = async (id: number) => {
+    const mediaItem = await fetchData<PostItem>(
+      import.meta.env.VITE_MEDIA_API + '/media/' + id,
+    );
+    // Get usernames (file owners) for all media files from auth api
+    const owner = await fetchData<UserWithNoPassword>(
+      import.meta.env.VITE_AUTH_API + '/users/' + mediaItem.user_id,
+    );
+    const itemWithOwner: MediaItemWithOwner = {
+      created_at: mediaItem.created_at,
+      thumbnail: mediaItem.thumbnail,
+      description: mediaItem.description,
+      filename: mediaItem.filename,
+      filesize: mediaItem.filesize,
+      media_type: mediaItem.media_type,
+      post_id: mediaItem.post_id,
+      title: mediaItem.title,
+      user_id: mediaItem.user_id,
+      username: owner.username,
+    };
+    return itemWithOwner;
+  };
+
+  return {
+    mediaArray,
+    getHighlightById,
+    getMyMedia,
+    getMedia,
+    postMedia,
+    getMediaById,
+  };
 };
 
 const useUser = () => {
@@ -320,6 +351,41 @@ const useNotifications = () => {
   return {getNotifications, markNotificationAsRead};
 };
 
+const useTags = () => {
+  const getTags = async () => {
+    return await fetchData<TagResult[]>(
+      import.meta.env.VITE_MEDIA_API + '/tags',
+    );
+  };
+  const getMediaByTag = async (tag: string) => {
+    return await fetchData<PostItem[]>(
+      import.meta.env.VITE_MEDIA_API + '/tags/' + tag,
+    );
+  };
+  const getTagsByPostId = async (id: number) => {
+    return await fetchData<TagResult[]>(
+      import.meta.env.VITE_MEDIA_API + '/tags/media/' + id,
+    );
+  };
+  const postTag = async (post_id: number, tag_name: string, token: string) => {
+    console.log('postTag', post_id, tag_name, token);
+
+    const options: RequestInit = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+      body: JSON.stringify({tag_name, post_id}),
+    };
+    return await fetchData<MessageResponse[]>(
+      import.meta.env.VITE_MEDIA_API + '/tags',
+      options,
+    );
+  };
+  return {getTags, getMediaByTag, getTagsByPostId, postTag};
+};
+
 export {
   useMedia,
   useChat,
@@ -327,4 +393,5 @@ export {
   useAuthentication,
   useFile,
   useNotifications,
+  useTags,
 };

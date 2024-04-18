@@ -14,6 +14,8 @@ import Logout from './views/Logout';
 import Search from './views/Search';
 import Settings from './views/Settings';
 import Notifications from './views/Notifications';
+import CustomizeProfile from './views/CustomizeProfile';
+import TagSearch from './views/TagSearch';
 
 const App = () => {
   return (
@@ -35,6 +37,8 @@ const App = () => {
                   <Route path="/Search" element={<Search />} />
                   <Route path="/Settings" element={<Settings />} />
                   <Route path="/notifications" element={<Notifications />} />
+                  <Route path="/customize" element={<CustomizeProfile />} />
+                  <Route path="/tagSearch/:tag" element={<TagSearch />} />
 
                   {/*Lisätään myöhemmin views kansioon*/}
 

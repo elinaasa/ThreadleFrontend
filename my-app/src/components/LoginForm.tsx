@@ -2,7 +2,8 @@ import {useForm} from '../hooks/formHooks';
 import {Credentials} from '../types/LocalTypes';
 import {useUserContext} from '../hooks/ContextHooks';
 
-const LoginForm = () => {
+const LoginForm = (params: {toggleShowLogin: () => void}) => {
+  const {toggleShowLogin} = params;
   const {handleLogin} = useUserContext();
 
   const initValues: Credentials = {username: '', password: ''};
@@ -17,7 +18,7 @@ const LoginForm = () => {
   );
 
   return (
-    <>
+    <div className="p-header">
       <h3>Login</h3>
       <form onSubmit={handleSubmit}>
         <div>
@@ -44,7 +45,8 @@ const LoginForm = () => {
         </div>
         <button type="submit">Login</button>
       </form>
-    </>
+      <button onClick={toggleShowLogin}>I do not have an account</button>
+    </div>
   );
 };
 
