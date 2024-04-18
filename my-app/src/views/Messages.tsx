@@ -83,17 +83,17 @@ const Messages = () => {
             chatMessages.map((chat, index) => (
               <li
                 key={index}
-                className={`message ${chat.receiver_id === user?.user_id ? 'message-sent' : 'message-received'}`}
+                className={`message ${chat.sender_id === user?.user_id ? 'message-sent' : 'message-received'}`}
               >
                 <div
-                  className={`message-content ${chat.receiver_id === user?.user_id && 'message-sent'}`}
+                  className={`message-content ${chat.sender_id === user?.user_id && 'message-sent'}`}
                 >
                   <div className="avatar">
                     <i className="fa-solid fa-user"></i>
                   </div>
                   <div className="message-details">
                     <p className="sender-name">
-                      {chat.receiver_id === user?.user_id
+                      {chat.sender_id === user?.user_id
                         ? `You`
                         : otherUser?.username}
                     </p>

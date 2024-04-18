@@ -297,8 +297,8 @@ const useChat = () => {
 
   const addChatMessage = async (
     token: string,
-    receiver_id: number,
     sender_id: number,
+    receiver_id: number,
     message: string,
     id: number,
   ) => {
