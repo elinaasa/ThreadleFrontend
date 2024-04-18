@@ -24,10 +24,15 @@ const Messages = () => {
 
   const doChat = () => {
     const token = localStorage.getItem('token');
-    if (!token) {
+    if (!token || !user || !otherUser || !inputs.message) {
       return;
     }
-    handleAddChatMessage(token, inputs.message);
+    handleAddChatMessage(
+      token,
+      user.user_id,
+      otherUser.user_id,
+      inputs.message,
+    );
     // Empty input
     inputs.message = '';
   };

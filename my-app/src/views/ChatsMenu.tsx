@@ -72,8 +72,11 @@ const ChatsMenu = () => {
           >
             <h3>
               {
-                chatUsers.find((user) => user?.user_id === chat.sender_id)
-                  ?.username
+                chatUsers.find(
+                  (user) =>
+                    user?.user_id === chat.sender_id ||
+                    user?.user_id === chat.receiver_id,
+                )?.username
               }
             </h3>
           </li>

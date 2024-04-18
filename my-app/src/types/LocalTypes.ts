@@ -13,5 +13,10 @@ export type ChatContextType = {
   chatId: number | null;
   handleSetChatId: (id: number) => void;
   handleGetChatMessages: () => void;
-  handleAddChatMessage: (token: string, message: string) => void;
+  handleAddChatMessage: (
+    token: string,
+    sender_id: number,
+    receiver_id: number,
+    message: string,
+  ) => void;
 };

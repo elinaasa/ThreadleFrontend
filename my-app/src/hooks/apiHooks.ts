@@ -295,14 +295,20 @@ const useChat = () => {
     return messages;
   };
 
-  const addChatMessage = async (token: string, message: string, id: number) => {
+  const addChatMessage = async (
+    token: string,
+    receiver_id: number,
+    sender_id: number,
+    message: string,
+    id: number,
+  ) => {
     const options: RequestInit = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + token,
       },
-      body: JSON.stringify({message}),
+      body: JSON.stringify({message, sender_id, receiver_id}),
     };
     const messageRes = await fetchData<MessageResponse>(
       import.meta.env.VITE_MEDIA_API + '/chat/message/' + id,

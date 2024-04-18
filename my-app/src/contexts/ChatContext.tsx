@@ -29,12 +29,23 @@ const ChatProvider = ({children}: {children: React.ReactNode}) => {
 
   const handleSetChatId = (id: number) => setChatId(id);
 
-  const handleAddChatMessage = async (token: string, message: string) => {
+  const handleAddChatMessage = async (
+    token: string,
+    sender_id: number,
+    receiver_id: number,
+    message: string,
+  ) => {
     try {
       if (!chatId) {
         return [];
       }
-      const messageRes = await addChatMessage(token, message, chatId);
+      const messageRes = await addChatMessage(
+        token,
+        sender_id,
+        receiver_id,
+        message,
+        chatId,
+      );
       const updatedMessages = await getChatMessages(chatId);
       setChatMessages(updatedMessages);
 
