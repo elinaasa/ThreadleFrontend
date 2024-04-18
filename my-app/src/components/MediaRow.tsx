@@ -1,11 +1,23 @@
 import {Link} from 'react-router-dom';
-import {MediaItemWithOwner} from '../types/DBtypes';
+import {MediaItemWithOwner, TagResult} from '../types/DBtypes';
 import {useUserContext} from '../hooks/ContextHooks';
+import {useEffect, useState} from 'react';
+import {useTags} from '../hooks/apiHooks';
 
 const MediaRow = (props: {item: MediaItemWithOwner}) => {
   const {item} = props;
   const {user} = useUserContext();
   console.log('user', user);
+  const {getTagsByPostId} = useTags();
+  const [tags, setTags] = useState<TagResult[] | null>([]);
+
+  const fetchTags = async (post_id: number) => {
+    const tags = await getTagsByPostId(post_id);
+    setTags(tags);
+  };
+  useEffect(() => {
+    fetchTags(item.post_id);
+  }, []);
   return (
     <tr className="media-row">
       <td>
@@ -17,6 +29,13 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
       <td>{item.filesize}</td>
       <td>{item.media_type}</td>
       <td>{item.username}</td>
+      <td>
+        {tags?.map((tag, index) => (
+          <span key={tag.tag_id} className="tag">
+            {index < tags.length - 1 ? tag.tag_name + ', ' : tag.tag_name}
+          </span>
+        ))}
+      </td>
       <td>
         <Link to="/single" state={item}>
           View

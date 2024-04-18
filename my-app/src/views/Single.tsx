@@ -1,11 +1,23 @@
 import {NavigateFunction, useLocation, useNavigate} from 'react-router-dom';
-import {MediaItemWithOwner} from '../types/DBtypes';
+import {MediaItemWithOwner, TagResult} from '../types/DBtypes';
+import {useEffect, useState} from 'react';
+import {useTags} from '../hooks/apiHooks';
 
 const Single = () => {
   const {state} = useLocation();
   const navigate: NavigateFunction = useNavigate();
   //console.log('single state', state);
   const item: MediaItemWithOwner = state;
+  const {getTagsByPostId} = useTags();
+  const [tags, setTags] = useState<TagResult[] | null>([]);
+
+  const fetchTags = async (post_id: number) => {
+    const tags = await getTagsByPostId(post_id);
+    setTags(tags);
+  };
+  useEffect(() => {
+    fetchTags(item.post_id);
+  }, []);
 
   return (
     <>
@@ -22,6 +34,14 @@ const Single = () => {
       </p>
       <p>{item.filesize}</p>
       <p>{item.media_type}</p>
+      <div>
+        <p>Tags:</p>
+        {tags?.map((tag, index) => (
+          <span key={tag.tag_id} className="tag">
+            {index < tags.length - 1 ? tag.tag_name + ', ' : tag.tag_name}
+          </span>
+        ))}
+      </div>
       <button
         onClick={() => {
           navigate(-1);
