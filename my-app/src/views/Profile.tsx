@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {useMedia} from '../hooks/apiHooks';
 import {useUserContext} from '../hooks/ContextHooks';
 import {useEffect, useState} from 'react';
@@ -9,12 +9,10 @@ const Profile = () => {
   const {getMyMedia, getHighlightById} = useMedia();
   const [myMedia, setMyMedia] = useState<MediaItemWithOwner[] | null>([]);
   const [highlight, setHighlight] = useState<MediaItemWithOwner | null>(null);
+  const navigate = useNavigate();
 
   const fetchData = async () => {
-    // Get users media
-    if (!user) {
-      return;
-    }
+    if (!user) return;
     const user_id = user.user_id;
     const media = await getMyMedia(user_id);
     if (media) {
@@ -33,6 +31,9 @@ const Profile = () => {
   }, [highlight]);
 
   useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
     fetchData();
   }, []);
   return (
