@@ -42,6 +42,7 @@ const Messages = () => {
   }, [chatMessages]);
 
   useEffect(() => {
+    // If there are no chat messages or chatId, navigate back to chats
     if (chatMessages.length < 0 || !chatId) {
       navigate('/Chats');
     }
@@ -49,7 +50,9 @@ const Messages = () => {
   }, []);
 
   const getOtherUserObj = async (chat: ChatMessages) => {
+    // If there is no user or chat, return
     if (!user || !chat) return;
+    // Get the other user id and set it to state
     const otherUser =
       chat?.receiver_id === user?.user_id ? chat?.sender_id : chat?.receiver_id;
     const otherUserObject = await getUserById(otherUser);
@@ -58,6 +61,7 @@ const Messages = () => {
   };
 
   useEffect(() => {
+    // at start of component, get the other user object based of first message
     if (!otherUser) {
       getOtherUserObj(chatMessages[0]);
     }
@@ -71,30 +75,28 @@ const Messages = () => {
         <ul className="chat-list">
           {chatMessages &&
             chatMessages.length > 0 &&
-            chatMessages.map((chat, index) => {
-              return (
-                <li
-                  key={index}
-                  className={`message ${chat.receiver_id === user?.user_id ? 'message-sent' : 'message-received'}`}
+            chatMessages.map((chat, index) => (
+              <li
+                key={index}
+                className={`message ${chat.receiver_id === user?.user_id ? 'message-sent' : 'message-received'}`}
+              >
+                <div
+                  className={`message-content ${chat.receiver_id === user?.user_id && 'message-sent'}`}
                 >
-                  <div
-                    className={`message-content ${chat.receiver_id === user?.user_id && 'message-sent'}`}
-                  >
-                    <div className="avatar">
-                      <i className="fa-solid fa-user"></i>
-                    </div>
-                    <div className="message-details">
-                      <p className="sender-name">
-                        {chat.receiver_id === user?.user_id
-                          ? `You`
-                          : otherUser?.username}
-                      </p>
-                      <p className="message-text">{chat.message}</p>
-                    </div>
+                  <div className="avatar">
+                    <i className="fa-solid fa-user"></i>
                   </div>
-                </li>
-              );
-            })}
+                  <div className="message-details">
+                    <p className="sender-name">
+                      {chat.receiver_id === user?.user_id
+                        ? `You`
+                        : otherUser?.username}
+                    </p>
+                    <p className="message-text">{chat.message}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
           <div ref={messageEndRef}></div>
         </ul>
       </div>
