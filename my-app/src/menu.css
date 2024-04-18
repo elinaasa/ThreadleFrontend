@@ -1,4 +1,3 @@
-
 /* menu ul/ui css */
 
 .menu-ul {
@@ -23,23 +22,64 @@ a {
   text-decoration: none;
   color: black;
 }
-.menu-li-1{
+.menu-li-1 {
   margin-left: 42px;
 }
 
-.menu-li-2{
+.menu-li-2 {
   margin-left: 10px;
 }
-.menu-li-3{
+.menu-li-3 {
   margin-left: 20px;
 }
 
-.menu-li-4{
+.menu-li-4 {
   margin: 20px 5px 20px;
 }
 
-
-.menu-img{
+.menu-img {
   margin-bottom: -8px;
   padding-right: 10px;
+}
+
+.popup {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(251, 167, 41);
+  border-radius: 100%;
+
+  animation-name: bounce;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+}
+
+.notification-container {
+  position: relative;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0);
+  }
+  16.67% {
+    transform: scale(1.2);
+  }
+  33.33% {
+    transform: scale(0.4);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  66.67% {
+    transform: scale(0.8);
+  }
+  83.33% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
 }

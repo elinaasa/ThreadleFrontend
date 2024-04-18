@@ -1,46 +1,81 @@
 import {Link} from 'react-router-dom';
 import {Outlet} from 'react-router-dom';
+import Menu from '../components/Menu';
+import {useEffect, useState} from 'react';
+import {useNotifications} from '../hooks/apiHooks';
 
 const Layout = () => {
+  const [showMenu, setShowMenu] = useState(false);
+  const [showNotificationPopup, setShowNotificationPopup] = useState(false);
+  const {getNotifications} = useNotifications();
+
+  const closeMenu = () => {
+    setShowMenu(false);
+  };
+
+  const fetchNotifications = async () => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return;
+    }
+    const notifications = await getNotifications(token);
+    if (notifications && notifications.length > 0) {
+      setShowNotificationPopup(true);
+    }
+  };
+
+  useEffect(() => {
+    fetchNotifications();
+  }, []);
   return (
     <>
       <header className="navbar">
         <nav>
-          <h2 className="nav-text">
-            <Link to="/">
-            Threadle
-            </Link>
+          <h2 onClick={closeMenu} className="nav-text">
+            <Link to="/">Threadle</Link>
           </h2>
           <ul className="nav-ul">
-            <li className="nav-li nav-icons">
+            <li onClick={closeMenu} className="nav-li nav-icons">
               <Link to="/search">
                 <img src={'../search.svg'} alt="search" />
               </Link>
             </li>
-            <li className="nav-li nav-icons">
+            <li onClick={closeMenu} className="nav-li nav-icons">
               <Link to="/notifications">
-                <img src={'../notification-filled.svg'} alt="notification" />
+                <div className="notification-container">
+                  <img src={'../notification-filled.svg'} alt="notification" />
+                  {showNotificationPopup && <div className="popup"></div>}
+                </div>
               </Link>
             </li>
-            <li className="nav-li">
+            <li onClick={closeMenu} className="nav-li">
               <Link to="/login">
                 <img src={'../person.svg'} alt="profile" />
               </Link>
             </li>
-            <li className="nav-li nav-icons">
-              <Link to="/menu">
+            <li
+              className="nav-li nav-icons"
+              onClick={() => setShowMenu(!showMenu)}
+            >
+              <a style={{cursor: 'pointer'}}>
                 <img src={'../nav-menu.svg'} alt="menu" />
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>
       </header>
-      <Outlet />
-
-      <main className="mainpage"></main>
-      <footer className="footer">
-        <p>© 2024</p>
-      </footer>
+      {showMenu ? (
+        <Menu closeMenu={closeMenu} />
+      ) : (
+        <>
+          <main className="mainpage">
+            <Outlet />
+          </main>
+          <footer className="footer">
+            <p>Threadle © 2024</p>
+          </footer>
+        </>
+      )}
     </>
   );
 };

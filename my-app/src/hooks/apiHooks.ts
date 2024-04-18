@@ -5,6 +5,7 @@ import {
   User,
   UserWithNoPassword,
   ChatMessages,
+  Notification,
 } from '../types/DBtypes';
 import {fetchData} from '../lib/functions';
 import {Credentials} from '../types/LocalTypes';
@@ -286,4 +287,44 @@ const useChat = () => {
   };
 };
 
-export {useMedia, useChat, useUser, useAuthentication, useFile};
+const useNotifications = () => {
+  const getNotifications = async (token: string) => {
+    const options: RequestInit = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+    };
+    const notifications = await fetchData<Notification[]>(
+      import.meta.env.VITE_MEDIA_API + '/notifications',
+      options,
+    );
+    return notifications;
+  };
+
+  const markNotificationAsRead = async (token: string, id: number) => {
+    const options: RequestInit = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+    };
+    await fetchData<Notification>(
+      import.meta.env.VITE_MEDIA_API + '/notifications/' + id,
+      options,
+    );
+  };
+
+  return {getNotifications, markNotificationAsRead};
+};
+
+export {
+  useMedia,
+  useChat,
+  useUser,
+  useAuthentication,
+  useFile,
+  useNotifications,
+};

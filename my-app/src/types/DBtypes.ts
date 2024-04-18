@@ -107,6 +107,13 @@ type UploadResult = {
     image: string;
   };
 };
+type Notification = {
+  notification_id: number;
+  user_id: number;
+  message: string;
+  viewed: boolean;
+  created_at: Date | string;
+};
 
 type MostLikedMedia = Pick<
   PostItem,
@@ -152,6 +159,7 @@ export type {
   MostLikedMedia,
   UserWithLevel,
   UserWithNoPassword,
+  Notification,
   TokenContent,
   MediaItemWithOwner,
   FileInfo,
