@@ -12,7 +12,6 @@ import Messages from './views/Messages';
 import {ChatProvider} from './contexts/ChatContext';
 import Logout from './views/Logout';
 import Search from './views/Search';
-import Settings from './views/Settings';
 import Notifications from './views/Notifications';
 import CustomizeProfile from './views/CustomizeProfile';
 import TagSearch from './views/TagSearch';
@@ -31,11 +30,17 @@ const App = () => {
                   <Route path="/Upload" element={<Upload />} />
                   <Route path="/Login" element={<Login />} />
                   <Route path="/logout" element={<Logout />} />
-                  <Route path="/profile" element={<Profile />} />
+                  <Route
+                    path="/profile"
+                    element={<Profile lockControls={false} />}
+                  />
+                  <Route
+                    path="/profile/:profileId"
+                    element={<Profile lockControls={false} />}
+                  />
                   <Route path="/Chats" element={<ChatsMenu />} />
                   <Route path="/messages" element={<Messages />} />
                   <Route path="/Search" element={<Search />} />
-                  <Route path="/Settings" element={<Settings />} />
                   <Route path="/notifications" element={<Notifications />} />
                   <Route path="/customize" element={<CustomizeProfile />} />
                   <Route path="/tagSearch/:tag" element={<TagSearch />} />

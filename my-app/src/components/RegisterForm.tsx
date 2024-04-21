@@ -1,10 +1,15 @@
 import {useState} from 'react';
 import {useUser} from '../hooks/apiHooks';
 import {useForm} from '../hooks/formHooks';
+import {useUserContext} from '../hooks/ContextHooks';
+import {Credentials} from '../types/LocalTypes';
+import {useNavigate} from 'react-router-dom';
 
 const RegisterForm = (params: {toggleShowLogin: () => void}) => {
   const {toggleShowLogin} = params;
   const {postUser} = useUser();
+  const {handleLogin} = useUserContext();
+  const navigate = useNavigate();
   const [usernameAvailable, setUsernameAvailable] = useState<boolean>(true);
   const [emailAvailable, setEmailAvailable] = useState<boolean>(true);
 
@@ -15,6 +20,8 @@ const RegisterForm = (params: {toggleShowLogin: () => void}) => {
       if (usernameAvailable && emailAvailable) {
         await postUser(inputs);
         alert('User registered');
+        await handleLogin(inputs as Credentials);
+        navigate('/customize');
       }
     } catch (error) {
       console.log((error as Error).message);

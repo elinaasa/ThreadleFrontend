@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {MediaItemWithOwner, TagResult} from '../types/DBtypes';
 import {useUserContext} from '../hooks/ContextHooks';
 import {useEffect, useState} from 'react';
@@ -10,11 +10,22 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
   console.log('user', user);
   const {getTagsByPostId} = useTags();
   const [tags, setTags] = useState<TagResult[] | null>([]);
+  const navigate = useNavigate();
 
   const fetchTags = async (post_id: number) => {
     const tags = await getTagsByPostId(post_id);
     setTags(tags);
   };
+
+  const openProfile = async (id: number) => {
+    if (!user) return;
+    if (user.user_id !== id) {
+      navigate('/profile/' + id);
+    } else {
+      navigate('profile');
+    }
+  };
+
   useEffect(() => {
     fetchTags(item.post_id);
   }, []);
@@ -28,7 +39,7 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
       <td>{new Date(item.created_at).toLocaleString('fi-FI')}</td>
       <td>{item.filesize}</td>
       <td>{item.media_type}</td>
-      <td>{item.username}</td>
+      <td onClick={() => openProfile(item.user_id)}>{item.username}</td>
       <td>
         {tags?.map((tag, index) => (
           <span key={tag.tag_id} className="tag">

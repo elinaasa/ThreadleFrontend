@@ -8,6 +8,7 @@ import {
   Notification,
   TagResult,
   NewMediaResponse,
+  Theme,
 } from '../types/DBtypes';
 import {fetchData} from '../lib/functions';
 import {Credentials} from '../types/LocalTypes';
@@ -207,6 +208,26 @@ const useUser = () => {
       options,
     );
   };
+  const customizeUser = async (
+    token: string,
+    description: string,
+    user_activity: string,
+    user_level_id: number,
+  ) => {
+    const options: RequestInit = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+      body: JSON.stringify({description, user_activity, user_level_id}),
+    };
+
+    await fetchData<UserResponse>(
+      import.meta.env.VITE_AUTH_API + '/users/customize',
+      options,
+    );
+  };
 
   const getUsernameAvailable = async (username: string) => {
     return await fetchData<{available: boolean}>(
@@ -222,6 +243,7 @@ const useUser = () => {
 
   return {
     getUserByToken,
+    customizeUser,
     getUserById,
     postUser,
     getUsernameAvailable,
@@ -392,6 +414,29 @@ const useTags = () => {
   return {getTags, getMediaByTag, getTagsByPostId, postTag};
 };
 
+const useTheme = () => {
+  const postTheme = async (token: string, color1: string, font1?: string) => {
+    const options: RequestInit = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+      body: JSON.stringify({color1, color2: color1, font1}),
+    };
+    return await fetchData<MessageResponse[]>(
+      import.meta.env.VITE_MEDIA_API + '/theme',
+      options,
+    );
+  };
+  const getUserTheme = async (user_id: number) => {
+    return await fetchData<Theme>(
+      import.meta.env.VITE_MEDIA_API + '/theme/' + user_id,
+    );
+  };
+  return {postTheme, getUserTheme};
+};
+
 export {
   useMedia,
   useChat,
@@ -400,4 +445,5 @@ export {
   useFile,
   useNotifications,
   useTags,
+  useTheme,
 };

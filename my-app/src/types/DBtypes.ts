@@ -28,6 +28,14 @@ type PostItem = {
   created_at: Date | string;
 };
 
+type CustomizeCredentials = {
+  colors: string | null;
+  fonts: string | null;
+  user_activity?: string;
+  user_level_id?: number;
+  description?: string;
+};
+
 type Chats = {
   chat_id: number;
   sender_id: number;
@@ -58,6 +66,8 @@ type Theme = {
   color2: string;
   color3: string;
   color4: string;
+  font1: string;
+  font2: string;
   created_at: Date | string;
 };
 
@@ -167,6 +177,7 @@ export type {
   Notification,
   TokenContent,
   MediaItemWithOwner,
+  CustomizeCredentials,
   FileInfo,
   ChatMessages,
   Chats,

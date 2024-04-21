@@ -1,33 +1,29 @@
-
-.p-header{
+.p-header {
   height: 200vh;
   margin-top: 50px;
 }
 
-.p-div{
+.p-div {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgb(255,255,255);
   text-align: center;
 }
 
-.p-settings{
-  margin-top: 50px;
+.p-settings {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: end;
-  background: rgb(255,255,255);
 }
 
 .p-text {
   max-width: 500px;
 }
 
-.p-img{
+.p-img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -35,13 +31,13 @@
   margin-left: 10px;
 }
 
-.p-edit{
+.p-edit {
   margin-left: -30px;
   width: 35px;
   height: 35px;
 }
 
-.grid-container{
+.grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
@@ -49,21 +45,22 @@
   height: 20vh;
 }
 
-.p-images{
+.p-images {
   width: 190px;
   height: 190px;
   object-fit: cover;
   border-radius: 10px;
 }
 
-.p-h1{
+.p-h1 {
   -webkit-text-stroke-width: 1;
   -webkit-text-stroke-color: #000;
-  font-family: "Rozha One";
+  font-family: 'Rozha One';
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  margin-bottom: 0;
 }
 
 /* highlited item */
@@ -78,7 +75,6 @@
   border: 2px solid rgb(50, 50, 50);
   background-color: var(--white-smoke);
   padding: 10px;
-
 }
 
 .p-profile {
@@ -94,9 +90,7 @@
   max-width: 400px;
   margin-left: 15px;
   margin-top: 4px;
-
 }
-
 
 .highlight-img {
   object-fit: cover;
@@ -104,10 +98,156 @@
   height: 170px;
   border-radius: 10px;
   padding: 5px;
-
-
 }
 
+.customize-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2;
+  width: 100%;
+  position: relative;
+}
+.customize-section {
+  width: 50%;
+  margin: 0px 10px;
+}
+.customize-form {
+  width: 100%;
+}
+.customize-preview {
+  width: 100%;
+  border: 2px solid black;
+  border-radius: 10px;
+  overflow: scroll;
+  max-height: 70vh;
+}
+.user-additional-info {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+}
+.activity {
+  padding: 4px 10px;
+  border-radius: 10px;
+}
+.level {
+  padding: 4px 10px;
+  border-radius: 10px;
+}
+.follow-btn {
+  padding: 4px 10px;
+  border-radius: 10px;
+  background-color: rgb(204, 253, 253);
+  color: rgb(72, 114, 116);
+  cursor: pointer;
+}
+.follow-btn:hover {
+  transition: 0.1s ease-in-out;
+  transform: scale(1.1);
+}
+.level-Seller {
+  background-color: rgb(250, 116, 232);
+  color: rgb(94, 0, 91);
+}
+.level-Buyer {
+  background-color: rgb(116, 196, 250);
+  color: rgb(0, 74, 94);
+}
+.activity-Active {
+  background-color: rgb(116, 250, 116);
+  color: rgb(0, 94, 0);
+}
+.activity-Away {
+  background-color: rgb(234, 250, 116);
+  color: rgb(94, 94, 0);
+}
+.activity-Do-not-disturb {
+  background-color: rgb(250, 116, 116);
+  color: rgb(94, 0, 0);
+}
+
+/* Themes */
+/* Colors*/
+.theme-bg-Red {
+  background-color: rgb(255, 118, 118);
+}
+.theme-bg-White {
+  background-color: white;
+}
+.theme-bg-Pink {
+  background-color: pink;
+}
+.theme-bg-Blue {
+  background-color: rgb(192, 231, 255);
+}
+.theme-bg-Green {
+  background-color: rgb(196, 255, 192);
+}
+.theme-bg-Yellow {
+  background-color: rgb(255, 254, 192);
+}
+.theme-bg-Orange {
+  background-color: rgb(250, 210, 157);
+}
+.theme-bg-Purple {
+  background-color: rgb(171, 157, 250);
+}
+.theme-bg-Magenta {
+  background-color: rgb(233, 157, 250);
+}
+.theme-bg-DarkBlue {
+  background-color: rgb(158, 157, 250);
+}
+/* Fonts */
+.theme-font-Arial {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.theme-font-Times-New-Roman {
+  font-family:
+    Times New Roman,
+    Times,
+    serif;
+}
+
+.theme-font-Verdana {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+.theme-font-Helvetica {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.theme-font-Courier-New {
+  font-family:
+    Courier New,
+    Courier,
+    monospace;
+}
+
+.theme-font-Georgia {
+  font-family: Georgia, serif;
+}
+
+.theme-font-Palatino {
+  font-family: Palatino, serif;
+}
+
+.theme-font-Tahoma {
+  font-family: Tahoma, Geneva, sans-serif;
+}
+
+.theme-font-Impact {
+  font-family: Impact, Charcoal, sans-serif;
+}
+
+.theme-font-Comic-Sans-MS {
+  font-family:
+    Comic Sans MS,
+    cursive,
+    sans-serif;
+}
 
 @media screen and (max-width: 700px) {
   .highlight-img {
@@ -116,22 +256,25 @@
     border-radius: 0px;
     padding: 0px;
   }
-    .p-profile {
-      text-align: start;
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      justify-content: start;
-    }
-    .inner-div{
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      justify-content: start;
-      padding-bottom: 10px ;
-    }
-
-
-
+  .p-profile {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+  }
+  .inner-div {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    padding-bottom: 10px;
+  }
+  .customize-container {
+    flex-direction: column;
+  }
+  .customize-section {
+    width: 100%;
+    margin: 0;
+  }
 }
-
