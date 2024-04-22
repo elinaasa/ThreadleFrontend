@@ -3,6 +3,7 @@ import {MediaItemWithOwner, TagResult} from '../types/DBtypes';
 import {useUserContext} from '../hooks/ContextHooks';
 import {useEffect, useState} from 'react';
 import {useTags} from '../hooks/apiHooks';
+import {formatDistanceToNow} from 'date-fns';
 
 const MediaRow = (props: {item: MediaItemWithOwner}) => {
   const {item} = props;
@@ -31,44 +32,38 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
   }, []);
   return (
     <tr className="media-row">
+      <td className="media-info">
+        <td className="username" onClick={() => openProfile(item.user_id)}>
+          {item.username}
+        </td>
+        <td className="media-buttons">
+          {user &&
+            (user.user_id === item.user_id || user.level_name === 'Admin') && (
+              <>
+                <button onClick={() => console.log('modify', item)}>
+                  Modify
+                </button>
+                <button onClick={() => console.log('delete', item)}>
+                  Delete
+                </button>
+              </>
+            )}
+        </td>
+      </td>
       <td>
         <img src={item.thumbnail} alt={item.title} />
       </td>
-      <td>{item.title}</td>
+      <Link to="/single" state={item}>
+        {item.title}
+      </Link>
       <td>{item.description}</td>
-      <td>{new Date(item.created_at).toLocaleString('fi-FI')}</td>
-      <td>{item.filesize}</td>
-      <td>{item.media_type}</td>
-      <td onClick={() => openProfile(item.user_id)}>{item.username}</td>
-      <td>
-        {tags?.map((tag, index) => (
+      <td>{formatDistanceToNow(item.created_at)}</td>
+      <td className="tags">
+        {tags?.map((tag) => (
           <span key={tag.tag_id} className="tag">
-            {index < tags.length - 1 ? tag.tag_name + ', ' : tag.tag_name}
+            {tag.tag_name}
           </span>
         ))}
-      </td>
-      <td>
-        <Link to="/single" state={item}>
-          View
-        </Link>
-
-        {user &&
-          (user.user_id === item.user_id || user.level_name === 'Admin') && (
-            <>
-              <button
-                className="bg-slate-700 p-2 hover:bg-slate-950"
-                onClick={() => console.log('modify', item)}
-              >
-                Modify
-              </button>
-              <button
-                className="bg-slate-700 p-2 hover:bg-slate-950"
-                onClick={() => console.log('delete', item)}
-              >
-                Delete
-              </button>
-            </>
-          )}
       </td>
     </tr>
   );
