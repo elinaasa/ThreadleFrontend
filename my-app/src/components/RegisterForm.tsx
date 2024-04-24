@@ -48,10 +48,10 @@ const RegisterForm = (params: {toggleShowLogin: () => void}) => {
 
   console.log(usernameAvailable, emailAvailable);
   return (
-    <div className="p-header">
+    <div className="l-header">
       <h3 className="text-3xl">Register</h3>
       <form onSubmit={handleSubmit} className="flex flex-col text-center">
-        <div className="flex w-4/5">
+        <div className="flex w-4/5 user-register">
           <label className="w-1/3 p-6 text-end" htmlFor="username">
             Username
           </label>
@@ -83,7 +83,7 @@ const RegisterForm = (params: {toggleShowLogin: () => void}) => {
             autoComplete="current-password"
           />
         </div>
-        <div className="flex w-4/5">
+        <div className="flex w-4/5 email-register">
           <label className="w-1/3 p-6 text-end" htmlFor="email">
             Email
           </label>
@@ -104,7 +104,7 @@ const RegisterForm = (params: {toggleShowLogin: () => void}) => {
         )}
         <div className="flex w-4/5 justify-end">
           <button
-            className="m-3 w-1/3 rounded-md bg-slate-700 p-3"
+            className="m-3 w-1/3 rounded-md bg-slate-700 p-3 login-b"
             type="submit"
           >
             Register

@@ -18,13 +18,13 @@ const LoginForm = (params: {toggleShowLogin: () => void}) => {
   );
 
   return (
-    <div className="p-header">
+    <div className="l-header">
       <h3>Login</h3>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="UserWithLevelname">Username</label>
           <input
-            className="text-slate-950"
+            className="login-color"
             name="username"
             type="text"
             id="UserWithLevelname"
@@ -32,10 +32,10 @@ const LoginForm = (params: {toggleShowLogin: () => void}) => {
             autoComplete="username"
           />
         </div>
-        <div>
+        <div className='login-pass'>
           <label htmlFor="loginpassword">Password</label>
           <input
-            className="text-slate-950"
+            className="login-color"
             name="password"
             type="password"
             id="loginpassword"
@@ -43,7 +43,7 @@ const LoginForm = (params: {toggleShowLogin: () => void}) => {
             autoComplete="current-password"
           />
         </div>
-        <button type="submit">Login</button>
+        <button className='login-b' type="submit">Login</button>
       </form>
       <button onClick={toggleShowLogin}>I do not have an account</button>
     </div>
