@@ -32,7 +32,7 @@ const TagSearch = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [tag]);
 
   return (
     <>

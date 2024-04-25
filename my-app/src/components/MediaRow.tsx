@@ -60,9 +60,7 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
       <td>{formatDistanceToNow(item.created_at)}</td>
       <td className="tags">
         {tags?.map((tag) => (
-          <span key={tag.tag_id} className="tag">
-            {tag.tag_name}
-          </span>
+          <Link to={'/tagSearch/' + tag.tag_name}>{tag.tag_name}</Link>
         ))}
       </td>
     </tr>
