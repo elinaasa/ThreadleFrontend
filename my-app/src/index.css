@@ -33,11 +33,11 @@ body {
 .nav-li {
   display: block;
   text-align: center;
-  margin-right: 15px;
+  margin: 5px 5px;
 }
 
 .nav-li img {
-  height: 2rem;
+  height: 1.5rem;
 }
 
 .footer {
@@ -198,8 +198,8 @@ body {
 
 a {
   text-decoration: none;
-  font-weight: bold;
 }
+
 .tag {
   font-size: 1rem;
   margin: 0.3rem 0.1rem;

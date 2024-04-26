@@ -10,7 +10,7 @@ const Menu = (params: {closeMenu: () => void}) => {
         <li
           style={{cursor: 'pointer'}}
           onClick={closeMenu}
-          className="menu-li menu-li-4"
+          className="menu-li back"
         >
           <img
             className="menu-img"
@@ -68,7 +68,7 @@ const Menu = (params: {closeMenu: () => void}) => {
           <>
             <li onClick={closeMenu} className="menu-li menu-li-3">
               <Link to="Messages">
-                <img className="menu-img" src={'../puhekupla.svg'} alt="chat" />
+                <img className="menu-img" src={'../chat.svg'} alt="chat" />
                 Messages
               </Link>
             </li>

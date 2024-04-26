@@ -110,19 +110,19 @@ const Profile = (params: {
             <li className="nav-li nav-icons">
               {profileViewMode === false ? (
                 <Link to="/folder">
-                  <img src={'../folder.svg'} alt="folder" />
+                  <img src={'../kansio.svg'} alt="folder" />
                 </Link>
               ) : (
-                <img src={'../folder.svg'} alt="folder" />
+                <img src={'../kansio.svg'} alt="folder" />
               )}
             </li>
             <li className="nav-li nav-icons">
               {profileViewMode === false ? (
                 <Link to="/customize">
-                  <img src={'../settings p.svg'} alt="settings" />
+                  <img src={'../asetukset.svg'} alt="settings" />
                 </Link>
               ) : (
-                <img src={'../settings p.svg'} alt="settings" />
+                <img src={'../asetukset.svg'} alt="settings" />
               )}
             </li>
             <ul />
@@ -201,7 +201,7 @@ const Profile = (params: {
                 <div className="inner-div">
                   <img
                     className="highlight-img"
-                    src="https://placehold.co/600x400"
+                    src="https://placehold.co/100x100"
                     alt="highlight-image"
                   />
                 </div>
@@ -214,42 +214,42 @@ const Profile = (params: {
               </div>
             </div>
           )}
+          <div className="media-container">
+            <div className="grid-container">
+              {!profileViewMode && myMedia && myMedia.length > 0
+                ? myMedia.map((item) => (
+                    <Link key={item.post_id} to="/single" state={item}>
+                      <img
+                        className="p-images"
+                        src={item.thumbnail}
+                        alt={item.title}
+                      />
+                    </Link>
+                  ))
+                : profileViewMode === true && (
+                    <>
+                      <img
+                        key="media1"
+                        className="p-images"
+                        src="https://placehold.co/600x400"
+                        alt="profile-media1"
+                      />
+                      <img
+                        key="media2"
+                        className="p-images"
+                        src="https://placehold.co/600x400"
+                        alt="profile-media2"
+                      />
+                      <img
+                        key="media3"
+                        className="p-images"
+                        src="https://placehold.co/600x400"
+                        alt="profile-media3"
+                      />
+                    </>
+                  )}
 
-          <div className="grid-container">
-            {!profileViewMode && myMedia && myMedia.length > 0
-              ? myMedia.map((item) => (
-                  <Link key={item.post_id} to="/single" state={item}>
-                    <img
-                      className="p-images"
-                      src={item.thumbnail}
-                      alt={item.title}
-                    />
-                  </Link>
-                ))
-              : profileViewMode === true && (
-                  <>
-                    <img
-                      key="media1"
-                      className="p-images"
-                      src="https://placehold.co/600x400"
-                      alt="profile-media1"
-                    />
-                    <img
-                      key="media2"
-                      className="p-images"
-                      src="https://placehold.co/600x400"
-                      alt="profile-media2"
-                    />
-                    <img
-                      key="media3"
-                      className="p-images"
-                      src="https://placehold.co/600x400"
-                      alt="profile-media3"
-                    />
-                  </>
-                )}
-
-            {/* <img className="p-images" src="../artist_3.jpg" alt="image1" />
+              {/* <img className="p-images" src="../artist_3.jpg" alt="image1" />
             <img className="p-images" src="../artist_2.jpg" alt="image2" />
             <img className="p-images"src="../artist_1.jpg" alt="image3" />
             <img className="p-images" src="../artist_3.jpg" alt="image1" />
@@ -258,13 +258,11 @@ const Profile = (params: {
             <img className="p-images" src="../artist_3.jpg" alt="image1" />
             <img className="p-images" src="../artist_2.jpg" alt="image2" />
             <img className="p-images"src="../artist_1.jpg" alt="image3" /> */}
+            </div>
           </div>
-          <li>
-            <Link to="/Upload">
-              <img className="menu-img" src={'../person.svg'} alt="Profile" />
-              Upload
-            </Link>
-          </li>
+          <Link to="/Upload">
+            <img className="upload" src={'../plus.svg'} alt="Profile" />
+          </Link>
         </div>
       </header>
     </div>

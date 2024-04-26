@@ -65,7 +65,7 @@ const Layout = () => {
               onClick={() => setShowMenu(!showMenu)}
             >
               <a style={{cursor: 'pointer'}}>
-                <img src={'../nav-menu.svg'} alt="menu" />
+                <img src={'../menu.svg'} alt="menu" />
               </a>
             </li>
           </ul>
