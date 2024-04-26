@@ -1,7 +1,13 @@
-import {NavigateFunction, useLocation, useNavigate} from 'react-router-dom';
+import {
+  NavigateFunction,
+  useLocation,
+  useNavigate,
+  Link,
+} from 'react-router-dom';
 import {MediaItemWithOwner, TagResult} from '../types/DBtypes';
 import {useEffect, useState} from 'react';
 import {useTags} from '../hooks/apiHooks';
+import {formatDistanceToNow} from 'date-fns';
 
 const Single = () => {
   const {state} = useLocation();
@@ -28,19 +34,13 @@ const Single = () => {
         <img src={item.filename} alt={item.title} />
       )}
       <p>{item.description}</p>
-      <p>
-        Uploaded at: {new Date(item.created_at).toLocaleString('fi-FI')}, by:{' '}
-        {item.username}{' '}
-      </p>
-      <p>{item.filesize}</p>
-      <p>{item.media_type}</p>
+      <p>{formatDistanceToNow(item.created_at)} ago</p>
       <div>
-        <p>Tags:</p>
-        {tags?.map((tag, index) => (
-          <span key={tag.tag_id} className="tag">
-            {index < tags.length - 1 ? tag.tag_name + ', ' : tag.tag_name}
-          </span>
-        ))}
+        <p className="tags">
+          {tags?.map((tag) => (
+            <Link to={'/tagSearch/' + tag.tag_name}>{tag.tag_name}</Link>
+          ))}
+        </p>
       </div>
       <button
         onClick={() => {
