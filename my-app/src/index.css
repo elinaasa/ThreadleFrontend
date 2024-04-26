@@ -36,6 +36,10 @@ body {
   margin-right: 15px;
 }
 
+.nav-li img {
+  height: 2rem;
+}
+
 .footer {
   border: #1e1e1e;
   border-top: 2px solid black;
@@ -64,12 +68,8 @@ body {
   font-size: 20px;
   font-weight: 300;
   line-height: 25px;
-  letter-spacing: 0.15000000596046448px;
+  letter-spacing: 0.15000000596046448px; /* mikä xD */
   text-align: left;
-}
-
-.nav-icons {
-  margin-top: 8px;
 }
 
 .mainpage {

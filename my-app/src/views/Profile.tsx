@@ -259,6 +259,12 @@ const Profile = (params: {
             <img className="p-images" src="../artist_2.jpg" alt="image2" />
             <img className="p-images"src="../artist_1.jpg" alt="image3" /> */}
           </div>
+          <li>
+            <Link to="/Upload">
+              <img className="menu-img" src={'../person.svg'} alt="Profile" />
+              Upload
+            </Link>
+          </li>
         </div>
       </header>
     </div>
