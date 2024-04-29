@@ -71,7 +71,7 @@ const Menu = (params: {closeMenu: () => void}) => {
         {user && (
           <>
             <li onClick={closeMenu} className="menu-li menu-li-3">
-              <Link to="Messages">
+              <Link to="/messages">
                 <img className="menu-img" src={'../chat.svg'} alt="chat" />
                 Messages
               </Link>

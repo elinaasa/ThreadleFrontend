@@ -93,11 +93,6 @@ const CustomizeProfile = () => {
                 className="text-slate-950"
                 name="description"
                 type="text"
-                value={
-                  inputs.description !== ''
-                    ? inputs.description
-                    : user?.description || ''
-                }
                 id="description"
                 onChange={handleInputChange}
               />
