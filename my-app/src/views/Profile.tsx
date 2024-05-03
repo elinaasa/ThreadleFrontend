@@ -131,7 +131,11 @@ const Profile = (params: {
 
         <div className="p-div">
           <div>
-            <img className="p-img" src="../artist.png" alt="artist" />
+            <img
+              className="p-img"
+              src={user?.pfp_url ? user?.pfp_url : '../artist.png'}
+              alt="artist"
+            />
 
             <img className="p-edit" src="../edit.svg" alt="edit" />
 

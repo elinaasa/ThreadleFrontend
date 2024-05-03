@@ -183,15 +183,41 @@ const useUser = () => {
         Authorization: 'Bearer ' + token,
       },
     };
-    return await fetchData<UserResponse>(
+    const userResponse = await fetchData<UserResponse>(
       import.meta.env.VITE_AUTH_API + '/users/token/',
       options,
     );
+    const user: UserWithNoPassword = {
+      user_id: userResponse.user.user_id,
+      username: userResponse.user.username,
+      email: userResponse.user.email,
+      level_name: userResponse.user.level_name,
+      description: userResponse.user.description,
+      user_activity: userResponse.user.user_activity,
+      created_at: userResponse.user.created_at,
+      pfp_url:
+        import.meta.env.VITE_UPLOAD_URL +
+        userResponse.user.pfp_url +
+        '-thumb.png',
+    };
+    return user;
   };
   const getUserById = async (id: number) => {
-    return await fetchData<UserWithNoPassword>(
+    const userResponse = await fetchData<UserWithNoPassword>(
       import.meta.env.VITE_AUTH_API + '/users/' + id,
     );
+    const user: UserWithNoPassword = {
+      user_id: userResponse.user_id,
+      username: userResponse.username,
+      email: userResponse.email,
+      level_name: userResponse.level_name,
+      description: userResponse.description,
+      user_activity: userResponse.user_activity,
+      created_at: userResponse.created_at,
+      pfp_url:
+        import.meta.env.VITE_UPLOAD_URL + userResponse.pfp_url + '-thumb.png',
+    };
+    return user;
   };
 
   const postUser = async (user: Record<string, string>) => {
@@ -213,6 +239,7 @@ const useUser = () => {
     description: string,
     user_activity: string,
     user_level_id: number,
+    pfp_url: string | null,
   ) => {
     const options: RequestInit = {
       method: 'PUT',
@@ -220,7 +247,12 @@ const useUser = () => {
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + token,
       },
-      body: JSON.stringify({description, user_activity, user_level_id}),
+      body: JSON.stringify({
+        description,
+        user_activity,
+        user_level_id,
+        pfp_url,
+      }),
     };
 
     await fetchData<UserResponse>(

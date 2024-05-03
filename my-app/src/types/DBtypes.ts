@@ -10,10 +10,11 @@ type User = {
   username: string;
   password: string;
   email: string;
+  description: string | null;
   user_level_id: number;
-  description: string;
   user_activity: 'Active' | 'Away' | 'Do not disturb';
   created_at: Date | string;
+  pfp_url: string | null;
 };
 
 type PostItem = {

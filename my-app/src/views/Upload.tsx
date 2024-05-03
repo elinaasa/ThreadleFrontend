@@ -23,10 +23,10 @@ const tags = [
 
 const Upload = () => {
   const [file, setFile] = useState<File | null>(null);
+  const {postFile} = useFile();
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const {handleAutoLogin} = useUserContext();
   const {postMedia} = useMedia();
-  const {postFile} = useFile();
   const {postTag} = useTags();
   // const [tags, setTags] = useState<TagResult[] | null>([]);
   const navigate = useNavigate();
