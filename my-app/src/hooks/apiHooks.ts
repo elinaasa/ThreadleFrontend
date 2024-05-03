@@ -96,6 +96,7 @@ const useMedia = () => {
         title: postItem.title,
         user_id: postItem.user_id,
         username: owner.username,
+        highlight: postItem.highlight,
       };
       return itemWithOwner;
     } catch (error) {
@@ -125,6 +126,7 @@ const useMedia = () => {
       filename: file.data.filename,
       filesize: file.data.filesize,
       media_type: file.data.media_type,
+      highlight: false,
     };
 
     // TODO: post the data to Media API and get the data as MediaResponse
@@ -161,6 +163,7 @@ const useMedia = () => {
       title: mediaItem.title,
       user_id: mediaItem.user_id,
       username: owner.username,
+      highlight: mediaItem.highlight,
     };
     return itemWithOwner;
   };

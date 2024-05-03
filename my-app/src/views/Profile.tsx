@@ -137,52 +137,41 @@ const Profile = (params: {
         )}
       </header>
 
-        <div className="p-div">
-          <div>
-            <img
-              className="p-img"
-              src={user?.pfp_url ? user?.pfp_url : '../artist.png'}
-              alt="artist"
-            />
+      <div className="p-div">
+        <div>
+          <img
+            className="p-img"
+            src={user?.pfp_url ? user?.pfp_url : '../artist.png'}
+            alt="artist"
+          />
 
-            <img className="p-edit" src="../edit.svg" alt="edit" />
+          <img className="p-edit" src="../edit.svg" alt="edit" />
 
-            <img src="" alt="" />
-            <h1 className="p-h1">
-              {fetchUser ? fetchUser.username : user?.username}
-            </h1>
-            <div className="user-additional-info">
-              <p
-                className={
-                  profileViewMode === true
-                    ? `activity activity-${theme?.user_activity === 'Do not disturb' ? 'Do-not-disturb' : theme?.user_activity}`
-                    : `activity activity-${fetchUser ? fetchUser.user_activity : user?.user_activity === 'Do not disturb' ? 'Do-not-disturb' : user?.user_activity}`
-                }
-              >
-                {profileViewMode === false
-                  ? fetchUser
-                    ? fetchUser.user_activity
-                    : user?.user_activity
-                  : theme?.user_activity}
-              </p>
-              <p
-                className={
-                  profileViewMode === true
-                    ? `level level-${theme?.user_level_id == 3 ? 'Seller' : 'Buyer'}`
-                    : `level level-${fetchUser ? fetchUser.level_name : user?.level_name}`
-                }
-              >
-                {profileViewMode === false
-                  ? fetchUser
-                    ? fetchUser.level_name
-                    : user?.level_name
-                  : theme?.user_level_id == 3
-                    ? 'Seller'
-                    : 'Buyer'}
-              </p>
-              {fetchUser && <p className="follow-btn">Follow</p>}
-            </div>
-            <p className="p-text">
+          <img src="" alt="" />
+          <h1 className="p-h1">
+            {fetchUser ? fetchUser.username : user?.username}
+          </h1>
+          <div className="user-additional-info">
+            <p
+              className={
+                profileViewMode === true
+                  ? `activity activity-${theme?.user_activity === 'Do not disturb' ? 'Do-not-disturb' : theme?.user_activity}`
+                  : `activity activity-${fetchUser ? fetchUser.user_activity : user?.user_activity === 'Do not disturb' ? 'Do-not-disturb' : user?.user_activity}`
+              }
+            >
+              {profileViewMode === false
+                ? fetchUser
+                  ? fetchUser.user_activity
+                  : user?.user_activity
+                : theme?.user_activity}
+            </p>
+            <p
+              className={
+                profileViewMode === true
+                  ? `level level-${theme?.user_level_id == 3 ? 'Seller' : 'Buyer'}`
+                  : `level level-${fetchUser ? fetchUser.level_name : user?.level_name}`
+              }
+            >
               {profileViewMode === false
                 ? fetchUser
                   ? fetchUser.level_name
@@ -196,83 +185,94 @@ const Profile = (params: {
           <p className="p-text">
             {profileViewMode === false
               ? fetchUser
-                ? fetchUser.description
-                : user?.description
-              : theme?.description}
+                ? fetchUser.level_name
+                : user?.level_name
+              : theme?.user_level_id == 3
+                ? 'Seller'
+                : 'Buyer'}
           </p>
+          {fetchUser && <p className="follow-btn">Follow</p>}
         </div>
+        <p className="p-text">
+          {profileViewMode === false
+            ? fetchUser
+              ? fetchUser.description
+              : user?.description
+            : theme?.description}
+        </p>
+      </div>
 
-        {profileViewMode === false && highlight !== null ? (
-          <div className="p-box">
-            <div className="hightlight-container">
-              <div className="inner-div">
-                <img
-                  className="highlight-img"
-                  src={highlight.thumbnail}
-                  alt={highlight.title}
-                />
-              </div>
-              <div className="p-profile">
-                <h3 className="highlight-text">{highlight.title}</h3>
-                <p className="highlight-text">{highlight.description}</p>
-              </div>
+      {profileViewMode === false && highlight !== null ? (
+        <div className="p-box">
+          <div className="hightlight-container">
+            <div className="inner-div">
+              <img
+                className="highlight-img"
+                src={highlight.thumbnail}
+                alt={highlight.title}
+              />
+            </div>
+            <div className="p-profile">
+              <h3 className="highlight-text">{highlight.title}</h3>
+              <p className="highlight-text">{highlight.description}</p>
             </div>
           </div>
-        ) : (
-          <div className={`p-box`}>
-            <div className="highlight-container">
-              <div className="inner-div">
-                <img
-                  className="highlight-img"
-                  src="https://placehold.co/100x100"
-                  alt="highlight-image"
-                />
-              </div>
-              <div className="p-profile">
-                <h3 className="highlight-text">No highlight yet</h3>
-                <p className="highlight-text">
-                  This user does not have highlight linked on his profile
-                </p>
-              </div>
+        </div>
+      ) : (
+        <div className={`p-box`}>
+          <div className="highlight-container">
+            <div className="inner-div">
+              <img
+                className="highlight-img"
+                src="https://placehold.co/100x100"
+                alt="highlight-image"
+              />
+            </div>
+            <div className="p-profile">
+              <h3 className="highlight-text">No highlight yet</h3>
+              <p className="highlight-text">
+                This user does not have highlight linked on his profile
+              </p>
             </div>
           </div>
-        )}
-        <div className="media-container">
-          <div className="grid-container">
-            {!profileViewMode && myMedia && myMedia.length > 0
-              ? myMedia.map((item) => (
-                  <Link key={item.post_id} to="/single" state={item}>
-                    <img
-                      className="p-images"
-                      src={item.thumbnail}
-                      alt={item.title}
-                    />
-                  </Link>
-                ))
-              : profileViewMode === true && (
-                  <>
-                    <img
-                      key="media1"
-                      className="p-images"
-                      src="https://placehold.co/600x400"
-                      alt="profile-media1"
-                    />
-                    <img
-                      key="media2"
-                      className="p-images"
-                      src="https://placehold.co/600x400"
-                      alt="profile-media2"
-                    />
-                    <img
-                      key="media3"
-                      className="p-images"
-                      src="https://placehold.co/600x400"
-                      alt="profile-media3"
-                    />
-                  </>
-                )}
+        </div>
+      )}
+      <div className="media-container">
+        <div className="grid-container">
+          {!profileViewMode && myMedia && myMedia.length > 0
+            ? myMedia.map((item) => (
+                <Link key={item.post_id} to="/single" state={item}>
+                  <img
+                    className="p-images"
+                    src={item.thumbnail}
+                    alt={item.title}
+                  />
+                </Link>
+              ))
+            : profileViewMode === true && (
+                <>
+                  <img
+                    key="media1"
+                    className="p-images"
+                    src="https://placehold.co/600x400"
+                    alt="profile-media1"
+                  />
+                  <img
+                    key="media2"
+                    className="p-images"
+                    src="https://placehold.co/600x400"
+                    alt="profile-media2"
+                  />
+                  <img
+                    key="media3"
+                    className="p-images"
+                    src="https://placehold.co/600x400"
+                    alt="profile-media3"
+                  />
+                </>
+              )}
 
-            {/* <img className="p-images" src="../artist_3.jpg" alt="image1" />
+          {/* <img className="p-images" src="../artist_3.jpg" alt="image1" />
             <img className="p-images" src="../artist_2.jpg" alt="image2" />
             <img className="p-images"src="../artist_1.jpg" alt="image3" />
             <img className="p-images" src="../artist_3.jpg" alt="image1" />
@@ -281,7 +281,6 @@ const Profile = (params: {
             <img className="p-images" src="../artist_3.jpg" alt="image1" />
             <img className="p-images" src="../artist_2.jpg" alt="image2" />
             <img className="p-images"src="../artist_1.jpg" alt="image3" /> */}
-          </div>
         </div>
       </div>
     </div>
