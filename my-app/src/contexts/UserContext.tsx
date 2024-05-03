@@ -49,7 +49,7 @@ const UserProvider = ({children}: {children: React.ReactNode}) => {
         // if token exists, get user data from API
         const userResponse = await getUserByToken(token);
         // set user to state
-        setUser(userResponse.user);
+        setUser(userResponse);
       }
     } catch (e) {
       console.log((e as Error).message);

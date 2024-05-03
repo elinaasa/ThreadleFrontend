@@ -7,10 +7,12 @@ import {
 import {MediaItemWithOwner, TagResult} from '../types/DBtypes';
 import {useEffect, useState} from 'react';
 import {useTags} from '../hooks/apiHooks';
+import {useUserContext} from '../hooks/ContextHooks';
 import {formatDistanceToNow} from 'date-fns';
 
 const Single = () => {
   const {state} = useLocation();
+  const {user} = useUserContext();
   const navigate: NavigateFunction = useNavigate();
   //console.log('single state', state);
   const item: MediaItemWithOwner = state;
@@ -21,6 +23,16 @@ const Single = () => {
     const tags = await getTagsByPostId(post_id);
     setTags(tags);
   };
+
+  const openProfile = async (id: number) => {
+    if (!user) return;
+    if (user.user_id !== id) {
+      navigate('/profile/' + id);
+    } else {
+      navigate('profile');
+    }
+  };
+
   useEffect(() => {
     fetchTags(item.post_id);
   }, []);
@@ -34,6 +46,12 @@ const Single = () => {
         <img src={item.filename} alt={item.title} />
       )}
       <p>{item.description}</p>
+      <p onClick={() => openProfile(item.user_id)}>
+        Uploaded at: {new Date(item.created_at).toLocaleString('fi-FI')}, by:{' '}
+        {item.username}{' '}
+      </p>
+      <p>{item.filesize}</p>
+      <p>{item.media_type}</p>
       <p>{formatDistanceToNow(item.created_at)} ago</p>
       <div>
         <p className="tags">

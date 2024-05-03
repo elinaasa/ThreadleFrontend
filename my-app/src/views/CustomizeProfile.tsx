@@ -1,16 +1,18 @@
 import {useNavigate} from 'react-router-dom';
 import {useUserContext} from '../hooks/ContextHooks';
-import {useTheme, useUser} from '../hooks/apiHooks';
+import {useFile, useTheme, useUser} from '../hooks/apiHooks';
 import {useCustomizeForm} from '../hooks/formHooks';
 import {CustomizeCredentials} from '../types/DBtypes';
 import Profile from './Profile';
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 
 const CustomizeProfile = () => {
   const {user} = useUserContext();
   const {postTheme} = useTheme();
   const {customizeUser} = useUser();
   const navigate = useNavigate();
+  const [file, setFile] = useState<File | null>(null);
+  const {postFile} = useFile();
   const initValues: CustomizeCredentials = {
     description: '',
     user_activity: '',
@@ -56,16 +58,35 @@ const CustomizeProfile = () => {
     }
     // post user (description, user_activity, user_level_id)
     if (inputs.description && inputs.user_activity && inputs.user_level_id) {
-      await customizeUser(
-        token,
-        inputs.description,
-        inputs.user_activity,
-        inputs.user_level_id,
-      );
+      if (file) {
+        const fileResult = await postFile(file, token);
+        console.log('fileresult', fileResult);
+        await customizeUser(
+          token,
+          inputs.description,
+          inputs.user_activity,
+          inputs.user_level_id,
+          fileResult.data.filename,
+        );
+      } else {
+        await customizeUser(
+          token,
+          inputs.description,
+          inputs.user_activity,
+          inputs.user_level_id,
+          null,
+        );
+      }
     }
 
     alert('Profile customized');
     navigate('/profile');
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setFile(e.target.files[0]);
+    }
   };
 
   const {handleSubmit, handleInputChange, inputs} = useCustomizeForm(
@@ -76,6 +97,8 @@ const CustomizeProfile = () => {
   useEffect(() => {
     if (!user) {
       navigate('/');
+    } else {
+      console.log('user', user);
     }
   }, [user]);
 
@@ -93,15 +116,42 @@ const CustomizeProfile = () => {
                 className="text-slate-950"
                 name="description"
                 type="text"
-                value={
-                  inputs.description !== ''
-                    ? inputs.description
-                    : user?.description || ''
-                }
                 id="description"
                 onChange={handleInputChange}
               />
             </div>
+            <div className="">
+              <label className="" htmlFor="file">
+                File
+              </label>
+              <input
+                className=""
+                name="file"
+                type="file"
+                id="file"
+                accept="image/*, video/*"
+                onChange={handleFileChange}
+              />
+            </div>
+            {file && (
+              <div className="">
+                {file && file.type.includes('video') ? (
+                  <video
+                    className=""
+                    src={file ? URL.createObjectURL(file) : '../200.png'}
+                    width="200"
+                    controls // Added controls attribute for video playback controls
+                  />
+                ) : (
+                  <img
+                    className=""
+                    src={file ? URL.createObjectURL(file) : '../200.png'}
+                    alt="preview"
+                    width="200"
+                  />
+                )}
+              </div>
+            )}
             <div>
               <label htmlFor="colors">Choose a color:</label>
               <select
