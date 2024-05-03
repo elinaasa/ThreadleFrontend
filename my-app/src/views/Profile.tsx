@@ -106,28 +106,36 @@ const Profile = (params: {
       <header className={`${profileViewMode === false && 'p-header'}`}>
         {!fetchUser && (
           <div className="p-settings">
-            <ul className="p-settings"></ul>
-            <li className="nav-li nav-icons">
+            <li className="edit-icons">
               {profileViewMode === false ? (
                 <Link to="/folder">
-                  <img src={'../folder.svg'} alt="folder" />
+                  <img src={'../kansio.svg'} alt="folder" />
                 </Link>
               ) : (
-                <img src={'../folder.svg'} alt="folder" />
+                <img src={'../kansio.svg'} alt="folder" />
               )}
             </li>
-            <li className="nav-li nav-icons">
+            <li className="edit-icons">
+              {profileViewMode === false ? (
+                <Link to="/upload">
+                  <img src={'../plus.svg'} alt="settings" />
+                </Link>
+              ) : (
+                <img src={'../plus.svg'} alt="settings" />
+              )}
+            </li>
+            <li className="edit-icons">
               {profileViewMode === false ? (
                 <Link to="/customize">
-                  <img src={'../settings p.svg'} alt="settings" />
+                  <img src={'../edit.svg'} alt="settings" />
                 </Link>
               ) : (
-                <img src={'../settings p.svg'} alt="settings" />
+                <img src={'../edit.svg'} alt="settings" />
               )}
             </li>
-            <ul />
           </div>
         )}
+      </header>
 
         <div className="p-div">
           <div>
@@ -177,48 +185,59 @@ const Profile = (params: {
             <p className="p-text">
               {profileViewMode === false
                 ? fetchUser
-                  ? fetchUser.description
-                  : user?.description
-                : theme?.description}
+                  ? fetchUser.level_name
+                  : user?.level_name
+                : theme?.user_level_id == 3
+                  ? 'Seller'
+                  : 'Buyer'}
             </p>
+            {fetchUser && <p className="follow-btn">Follow</p>}
           </div>
+          <p className="p-text">
+            {profileViewMode === false
+              ? fetchUser
+                ? fetchUser.description
+                : user?.description
+              : theme?.description}
+          </p>
+        </div>
 
-          {profileViewMode === false && highlight !== null ? (
-            <div className="p-box">
-              <div className="container">
-                <div className="inner-div">
-                  <img
-                    className="highlight-img"
-                    src={highlight.thumbnail}
-                    alt={highlight.title}
-                  />
-                </div>
-                <div className="p-profile">
-                  <h3 className="highlight-text">{highlight.title}</h3>
-                  <p className="highlight-text">{highlight.description}</p>
-                </div>
+        {profileViewMode === false && highlight !== null ? (
+          <div className="p-box">
+            <div className="hightlight-container">
+              <div className="inner-div">
+                <img
+                  className="highlight-img"
+                  src={highlight.thumbnail}
+                  alt={highlight.title}
+                />
+              </div>
+              <div className="p-profile">
+                <h3 className="highlight-text">{highlight.title}</h3>
+                <p className="highlight-text">{highlight.description}</p>
               </div>
             </div>
-          ) : (
-            <div className={`p-box`}>
-              <div className="container">
-                <div className="inner-div">
-                  <img
-                    className="highlight-img"
-                    src="https://placehold.co/600x400"
-                    alt="highlight-image"
-                  />
-                </div>
-                <div className="p-profile">
-                  <h3 className="highlight-text">No highlight yet</h3>
-                  <p className="highlight-text">
-                    This user does not have highlight linked on his profile
-                  </p>
-                </div>
+          </div>
+        ) : (
+          <div className={`p-box`}>
+            <div className="highlight-container">
+              <div className="inner-div">
+                <img
+                  className="highlight-img"
+                  src="https://placehold.co/100x100"
+                  alt="highlight-image"
+                />
+              </div>
+              <div className="p-profile">
+                <h3 className="highlight-text">No highlight yet</h3>
+                <p className="highlight-text">
+                  This user does not have highlight linked on his profile
+                </p>
               </div>
             </div>
-          )}
-
+          </div>
+        )}
+        <div className="media-container">
           <div className="grid-container">
             {!profileViewMode && myMedia && myMedia.length > 0
               ? myMedia.map((item) => (
@@ -264,7 +283,7 @@ const Profile = (params: {
             <img className="p-images"src="../artist_1.jpg" alt="image3" /> */}
           </div>
         </div>
-      </header>
+      </div>
     </div>
   );
 };

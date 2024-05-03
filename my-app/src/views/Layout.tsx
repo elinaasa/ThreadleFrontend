@@ -44,20 +44,20 @@ const Layout = () => {
           <ul className="nav-ul">
             <li onClick={closeMenu} className="nav-li nav-icons">
               <Link to="/search">
-                <img src={'../search.svg'} alt="search" />
+                <img src={'../haku.svg'} alt="search" />
               </Link>
             </li>
             <li onClick={closeMenu} className="nav-li nav-icons">
               <Link to="/notifications">
                 <div className="notification-container">
-                  <img src={'../notification-filled.svg'} alt="notification" />
+                  <img src={'../kello.svg'} alt="notification" />
                   {showNotificationPopup && <div className="popup"></div>}
                 </div>
               </Link>
             </li>
             <li onClick={closeMenu} className="nav-li">
               <Link to="/login">
-                <img src={'../person.svg'} alt="profile" />
+                <img src={'../kayttaja.svg'} alt="profile" />
               </Link>
             </li>
             <li
@@ -65,7 +65,7 @@ const Layout = () => {
               onClick={() => setShowMenu(!showMenu)}
             >
               <a style={{cursor: 'pointer'}}>
-                <img src={'../nav-menu.svg'} alt="menu" />
+                <img src={'../menu.svg'} alt="menu" />
               </a>
             </li>
           </ul>
@@ -78,9 +78,6 @@ const Layout = () => {
           <main className="mainpage">
             <Outlet />
           </main>
-          <footer className="footer">
-            <p>Threadle © 2024</p>
-          </footer>
         </>
       )}
     </>

@@ -1,0 +1,24 @@
+.l-header {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.login-b {
+  margin: 10px;
+}
+
+.login-pass {
+  margin-left: 4px;
+}
+
+.email-register {
+  margin-left: 28px;
+}
+
+.user-register {
+  margin-left: -4px;
+}

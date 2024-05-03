@@ -5,39 +5,26 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: flex-start;
-  flex-wrap: nowrap;
-  padding: 0%;
-  height: 100vh;
+  height: 95vh;
+  margin-top: 30px;
+  align-items: center;
+  padding: 0;
 }
 
 .menu-li {
   padding: 10px;
-  padding: 10px;
-  align-self: center;
-  padding: 10px;
+  width: 45%;
+  min-width: 170px;
 }
 
 a {
   text-decoration: none;
   color: black;
 }
-.menu-li-1 {
-  margin-left: 42px;
-}
-
-.menu-li-2 {
-  margin-left: 10px;
-}
-.menu-li-3 {
-  margin-left: 20px;
-}
-
-.menu-li-4 {
-  margin: 20px 5px 20px;
-}
 
 .menu-img {
+  height: 1.5rem;
+  width: 3rem;
   margin-bottom: -8px;
   padding-right: 10px;
 }
@@ -54,6 +41,10 @@ a {
   animation-name: bounce;
   animation-duration: 0.5s;
   animation-timing-function: ease-out;
+}
+
+.back {
+  margin-bottom: 2rem;
 }
 
 .notification-container {

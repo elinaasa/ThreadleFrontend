@@ -10,7 +10,7 @@ const Menu = (params: {closeMenu: () => void}) => {
         <li
           style={{cursor: 'pointer'}}
           onClick={closeMenu}
-          className="menu-li menu-li-4"
+          className="menu-li back"
         >
           <img
             className="menu-img"
@@ -21,29 +21,29 @@ const Menu = (params: {closeMenu: () => void}) => {
         </li>
         <li onClick={closeMenu} className="menu-li">
           <Link to="/">
-            <img className="menu-img" src={'../home.svg'} alt="home" />
+            <img className="menu-img" src={'../koti.svg'} alt="home" />
             Home
           </Link>
         </li>
         <li onClick={closeMenu} className="menu-li">
           <Link to="/login">
-            <img className="menu-img" src={'../person.svg'} alt="Profile" />
+            <img className="menu-img" src={'../kayttaja.svg'} alt="Profile" />
             Profile
           </Link>
         </li>
         {user && (
           <>
-            <li onClick={closeMenu} className="menu-li">
+            {/* <li onClick={closeMenu} className="menu-li">
               <Link to="/Upload">
                 <img className="menu-img" src={'../person.svg'} alt="Profile" />
                 Upload
               </Link>
-            </li>
+            </li> */}
             <li onClick={closeMenu} className="menu-li menu-li-1">
               <Link to="/Notifications">
                 <img
                   className="menu-img "
-                  src={'../notification bell.svg'}
+                  src={'../kello.svg'}
                   alt="Notifications"
                 />
                 Notifications
@@ -53,17 +53,13 @@ const Menu = (params: {closeMenu: () => void}) => {
         )}
         <li onClick={closeMenu} className="menu-li menu-li-2">
           <Link to="/Settings">
-            <img
-              className="menu-img"
-              src={'../settings cog.svg'}
-              alt="settings"
-            />
+            <img className="menu-img" src={'../asetukset.svg'} alt="settings" />
             Settings
           </Link>
         </li>
         <li onClick={closeMenu} className="menu-li ">
           <Link to="Search">
-            <img className="menu-img" src={'../search30.svg'} alt="search" />
+            <img className="menu-img" src={'../haku.svg'} alt="search" />
             Search
           </Link>
         </li>

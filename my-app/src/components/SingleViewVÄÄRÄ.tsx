@@ -1,3 +1,4 @@
+import {formatDistanceToNow} from 'date-fns';
 import {PostItem} from '../types/DBtypes';
 
 const SingleView = (props: {
@@ -10,7 +11,12 @@ const SingleView = (props: {
       <h3>{item.title}</h3> :
       <img src={item.filename} alt={item.title} />
       <p>{item.description}</p>
-      <p>{new Date(item.created_at).toLocaleString('fi-FI')}</p>
+      <p>{formatDistanceToNow(item.created_at)}</p>
+      <td className="tags">
+        {tags?.map((tag) => (
+          <Link to={'/tagSearch/' + tag.tag_name}>{tag.tag_name}</Link>
+        ))}
+      </td>
       <button
         onClick={() => {
           setSelectedItem(undefined);
