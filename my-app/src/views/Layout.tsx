@@ -78,9 +78,6 @@ const Layout = () => {
           <main className="mainpage">
             <Outlet />
           </main>
-          <footer className="footer">
-            <p>Threadle © 2024</p>
-          </footer>
         </>
       )}
     </>

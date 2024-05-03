@@ -14,6 +14,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .blocks {
   margin: auto;
 }
@@ -70,10 +74,6 @@ body {
   line-height: 25px;
   letter-spacing: 0.15000000596046448px; /* mikä xD */
   text-align: left;
-}
-
-.mainpage {
-  width: 100%;
 }
 
 /* Home css*/
@@ -258,7 +258,6 @@ td img {
 @media screen and (max-width: 700px) {
   .container {
     display: block;
-    padding: 20px;
   }
   .artist-img {
     padding: 0px;
