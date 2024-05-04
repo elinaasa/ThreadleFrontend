@@ -187,13 +187,28 @@ body {
 .media-info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .media-buttons {
   display: flex;
-  align-items: end;
-  margin: 0 1rem 0.5rem 0;
+  align-items: start;
+}
+
+.media-buttons img {
+  width: 13px;
+  height: 15px;
+  margin: 3px;
+}
+
+.media-buttons button {
+  border: 1px solid #1e1e1e;
+  border-radius: 50%;
+  margin: 2px;
+}
+
+.button:hover {
+  background-color: #04aa6d; /* Green */
+  color: white;
 }
 
 a {
@@ -228,10 +243,14 @@ tbody {
   align-items: center;
 }
 
+.mediaImg {
+  width: 100%;
+  height: auto;
+}
+
 td img {
-  width: 90%;
-  max-width: 600px;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
 }
 
 .media-row {
@@ -246,14 +265,15 @@ td img {
   border: 2px solid rgb(50, 50, 50);
 }
 
-.media-row h2 {
-  color: var(--cinnabar);
-  margin: 10px 0 10px 0;
+.title-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-.media-row h3 {
-  padding: 0 0 1rem 1rem;
+.title-container a {
+  width: 80%;
 }
+
 .media-contact-td {
   width: 100%;
   transition: 0.3s ease-in-out;
@@ -310,9 +330,9 @@ td img {
 }
 
 @media screen and (max-width: 700px) {
-  .container {
+  /* .container {
     display: block;
-  }
+  } */
   .artist-img {
     padding: 0px;
     padding-left: 10px;

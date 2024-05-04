@@ -8,7 +8,6 @@ import {formatDistanceToNow} from 'date-fns';
 const MediaRow = (props: {item: MediaItemWithOwner}) => {
   const {item} = props;
   const {user} = useUserContext();
-  console.log('user', user);
   const {getTagsByPostId} = useTags();
   const [tags, setTags] = useState<TagResult[] | null>([]);
   const navigate = useNavigate();
@@ -35,7 +34,6 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
       item.user_id,
       item.post_id,
     );
-    console.log('chatCreationResponse', chatCreationResponse);
     if (chatCreationResponse && 'chat_id' in chatCreationResponse) {
       handleSetChatId(chatCreationResponse.chat_id);
     } else {
@@ -65,10 +63,10 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
             (user.user_id === item.user_id || user.level_name === 'Admin') && (
               <>
                 <button onClick={() => console.log('modify', item)}>
-                  Modify
+                  <img src="../kyna.svg" alt="" />
                 </button>
                 <button onClick={() => console.log('delete', item)}>
-                  Delete
+                  <img src="../rode.svg" alt="" />
                 </button>
               </>
             )}
@@ -77,17 +75,21 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
       <td>
         <img src={item.thumbnail} alt={item.title} />
       </td>
-      {item.user_id !== user?.user_id && (
-        <td className="media-contact-td" onClick={openChat}>
-          <div className="media-contact-container">
-            <img src="../chat.svg" alt="chatIcon" />
-            <p>Ask about Item</p>
-          </div>
-        </td>
-      )}
-      <Link to="/single" state={item}>
-        {item.title}
-      </Link>
+
+      <div className="media-contact-container">
+        <Link to="/single" state={item}>
+          {item.title}
+        </Link>
+        {item.user_id !== user?.user_id && (
+          <td className="media-contact-td" onClick={openChat}>
+            <div className="media-contact-container">
+              <img src="../chat.svg" alt="chatIcon" />
+              <p>Ask about Item</p>
+            </div>
+          </td>
+        )}
+      </div>
+
       <td>{item.description}</td>
       <td>{formatDistanceToNow(item.created_at)}</td>
       <td className="tags">

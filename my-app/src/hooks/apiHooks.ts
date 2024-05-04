@@ -42,7 +42,6 @@ const useMedia = () => {
         }),
       );
       setMediaArray(itemsWithOwner);
-      console.log('mediaArray updated:', itemsWithOwner);
       return itemsWithOwner;
     } catch (error) {
       console.error('getMedia failed', error);
@@ -68,7 +67,6 @@ const useMedia = () => {
         }),
       );
       setMediaArray(itemsWithOwner);
-      console.log('mediaArray updated:', itemsWithOwner);
       return itemsWithOwner;
     } catch (error) {
       console.error('getMedia failed', error);
@@ -465,8 +463,6 @@ const useTags = () => {
     );
   };
   const postTag = async (post_id: number, tag_name: string, token: string) => {
-    console.log('postTag', post_id, tag_name, token);
-
     const options: RequestInit = {
       method: 'POST',
       headers: {
