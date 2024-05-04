@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useNotifications} from '../hooks/apiHooks';
 import {Notification} from '../types/DBtypes';
+import {formatDistanceToNow} from 'date-fns';
 
 const Notifications = () => {
   const [notifications, setNotifications] = useState<Notification[] | null>([]);
@@ -31,22 +32,22 @@ const Notifications = () => {
   return (
     <div className="p-header">
       <h1>Notifications</h1>
-      <ul>
-        {notifications?.map((notification) => {
-          return (
-            <li key={notification.notification_id}>
-              <div>
-                <label>{notification.message}</label>
-                <label>{String(notification.created_at)}</label>
-                <button
-                  onClick={() => markAsRead(notification.notification_id)}
-                >
-                  Silmä ikoni tähän
-                </button>
-              </div>
-            </li>
-          );
-        })}
+      <ul className="notification-list">
+        {notifications?.map((notification) => (
+          <li key={notification.notification_id} className="notification-item">
+            <div>
+              <label>{notification.message}</label>
+              <label>{formatDistanceToNow(notification.created_at)}</label>
+            </div>
+            <div onClick={() => markAsRead(notification.notification_id)}>
+              <img
+                className="mark-as-read"
+                src="../silma.svg"
+                alt="mark as read icon"
+              />
+            </div>
+          </li>
+        ))}
       </ul>
     </div>
   );

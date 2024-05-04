@@ -11,7 +11,7 @@ const ChatProvider = ({children}: {children: React.ReactNode}) => {
   const [chatMessages, setChatMessages] = useState<ChatMessages[]>([]);
   const [chatId, setChatId] = useState<number | null>(null);
 
-  const {getChatMessages, addChatMessage} = useChat();
+  const {getChatMessages, addChatMessage, createChatConversation} = useChat();
 
   const handleGetChatMessages = async () => {
     try {
@@ -56,12 +56,34 @@ const ChatProvider = ({children}: {children: React.ReactNode}) => {
     }
   };
 
+  const handleCreateChatConversation = async (
+    token: string,
+    receiver_id: number,
+    post_id: number | null,
+  ) => {
+    try {
+      const chatRes = await createChatConversation(token, receiver_id, post_id);
+      if (chatRes && 'chat_id' in chatRes) {
+        handleSetChatId(chatRes.chat_id);
+        handleGetChatMessages();
+        return chatRes;
+      } else {
+        console.log(chatRes.message);
+        return chatRes;
+      }
+    } catch (error) {
+      console.error('Error creating chat conversation:', error);
+      return null;
+    }
+  };
+
   const chatContextValue = {
     chatMessages,
     chatId,
     handleGetChatMessages,
     handleAddChatMessage,
     handleSetChatId,
+    handleCreateChatConversation,
   };
 
   return (

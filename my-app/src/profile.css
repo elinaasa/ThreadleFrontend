@@ -97,8 +97,17 @@
   background-color: var(--white-smoke);
   padding: 10px;
   width: 90%;
+  margin: auto;
+  max-width: 500px;
 }
-
+.p-chat-icon {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.p-chat-icon:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
 .p-profile {
   text-align: start;
   display: flex;
@@ -121,7 +130,19 @@
   border-radius: 10px;
   padding: 5px;
 }
-
+.username-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.username-row .p-h1 {
+  margin: 0 !important;
+}
+.theme-container {
+  height: 100vh;
+}
 .customize-container {
   display: flex;
   flex-direction: row;

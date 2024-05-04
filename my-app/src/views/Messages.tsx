@@ -24,6 +24,7 @@ const Messages = () => {
 
   const doChat = () => {
     const token = localStorage.getItem('token');
+    console.log('data', token, user, otherUser, inputs.message);
     if (!token || !user || !otherUser || !inputs.message) {
       return;
     }
@@ -60,9 +61,9 @@ const Messages = () => {
     // Get the other user id and set it to state
     const otherUser =
       chat?.receiver_id === user?.user_id ? chat?.sender_id : chat?.receiver_id;
+
     const otherUserObject = await getUserById(otherUser);
     setOtherUser(otherUserObject);
-    console.log('otheruser', otherUser);
   };
 
   useEffect(() => {
@@ -89,7 +90,19 @@ const Messages = () => {
                   className={`message-content ${chat.sender_id === user?.user_id && 'message-sent'}`}
                 >
                   <div className="avatar">
-                    <i className="fa-solid fa-user"></i>
+                    {chat.sender_id === user?.user_id ? (
+                      <img
+                        className="chat-pfp"
+                        src={user?.pfp_url || '../artist.png'}
+                        alt="artist"
+                      />
+                    ) : (
+                      <img
+                        className="chat-pfp"
+                        src={otherUser?.pfp_url || '../artist.png'}
+                        alt="artist"
+                      />
+                    )}
                   </div>
                   <div className="message-details">
                     <p className="sender-name">

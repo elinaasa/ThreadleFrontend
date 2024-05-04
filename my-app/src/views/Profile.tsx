@@ -1,6 +1,6 @@
-import {Link /*,useNavigate*/, useParams} from 'react-router-dom';
+import {Link, useNavigate, useParams} from 'react-router-dom';
 import {useMedia, useTheme, useUser} from '../hooks/apiHooks';
-import {useUserContext} from '../hooks/ContextHooks';
+import {useChatContext, useUserContext} from '../hooks/ContextHooks';
 import {useEffect, useState} from 'react';
 import {
   CustomizeCredentials,
@@ -23,7 +23,8 @@ const Profile = (params: {
   const [theme, setTheme] = useState<CustomizeCredentials | null>(null); // Disable profile controls on profile view mode only
   const [fetchUser, setFetchUser] = useState<UserWithNoPassword | null>(null); // If other users profile
   const {profileId} = useParams();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+  const {handleSetChatId, handleCreateChatConversation} = useChatContext();
 
   const fetchData = async () => {
     if (!user) return;
@@ -66,6 +67,30 @@ const Profile = (params: {
     }
   };
 
+  const openChat = async () => {
+    const token = localStorage.getItem('token');
+    if (!token || !profileId) return;
+    const chatCreationResponse = await handleCreateChatConversation(
+      token,
+      Number(profileId),
+      null,
+    );
+    console.log('chatCreationResponse', chatCreationResponse);
+    if (chatCreationResponse && 'chat_id' in chatCreationResponse) {
+      handleSetChatId(chatCreationResponse.chat_id);
+    } else {
+      const chatCreationResponse = await handleCreateChatConversation(
+        token,
+        Number(profileId),
+        null,
+      );
+      if (chatCreationResponse && 'chat_id' in chatCreationResponse) {
+        handleSetChatId(chatCreationResponse.chat_id);
+      }
+    }
+    navigate(`/messages`);
+  };
+
   useEffect(() => {
     // On mount check if profile is on view mode
     if (lockControls === true) {
@@ -99,12 +124,14 @@ const Profile = (params: {
     <div
       className={
         profileViewMode
-          ? `theme-bg-${theme?.colors} theme-font-${theme?.fonts}`
-          : `theme-bg-${theme?.colors} theme-font-${theme?.fonts}`
+          ? 'theme-container' +
+            ` theme-bg-${theme?.colors} theme-font-${theme?.fonts}`
+          : 'theme-container' +
+            ` theme-bg-${theme?.colors} theme-font-${theme?.fonts}`
       }
     >
       <header className={`${profileViewMode === false && 'p-header'}`}>
-        {!fetchUser && (
+        {!fetchUser && profileViewMode === false && (
           <div className="p-settings">
             <li className="edit-icons">
               {profileViewMode === false ? (
@@ -139,18 +166,34 @@ const Profile = (params: {
 
       <div className="p-div">
         <div>
-          <img
-            className="p-img"
-            src={user?.pfp_url ? user?.pfp_url : '../artist.png'}
-            alt="artist"
-          />
+          {!fetchUser ? (
+            <img
+              className="p-img"
+              src={user?.pfp_url || '../artist.png'}
+              alt="artist"
+            />
+          ) : (
+            <img
+              className="p-img"
+              src={fetchUser?.pfp_url || '../artist.png'}
+              alt="artist"
+            />
+          )}
 
           <img className="p-edit" src="../edit.svg" alt="edit" />
 
           <img src="" alt="" />
-          <h1 className="p-h1">
-            {fetchUser ? fetchUser.username : user?.username}
-          </h1>
+          <div className="username-row">
+            <h1 className="p-h1">
+              {fetchUser ? fetchUser.username : user?.username}
+            </h1>
+            {fetchUser && <p className="follow-btn">Follow</p>}
+            {fetchUser && (
+              <div onClick={openChat} className="p-chat-icon">
+                <img className="menu-img" src={'../chat.svg'} alt="chat" />
+              </div>
+            )}
+          </div>
           <div className="user-additional-info">
             <p
               className={
@@ -180,18 +223,7 @@ const Profile = (params: {
                   ? 'Seller'
                   : 'Buyer'}
             </p>
-            {fetchUser && <p className="follow-btn">Follow</p>}
           </div>
-          <p className="p-text">
-            {profileViewMode === false
-              ? fetchUser
-                ? fetchUser.level_name
-                : user?.level_name
-              : theme?.user_level_id == 3
-                ? 'Seller'
-                : 'Buyer'}
-          </p>
-          {fetchUser && <p className="follow-btn">Follow</p>}
         </div>
         <p className="p-text">
           {profileViewMode === false

@@ -198,10 +198,11 @@ const useUser = () => {
       description: userResponse.user.description,
       user_activity: userResponse.user.user_activity,
       created_at: userResponse.user.created_at,
-      pfp_url:
-        import.meta.env.VITE_UPLOAD_URL +
-        userResponse.user.pfp_url +
-        '-thumb.png',
+      pfp_url: userResponse.user.pfp_url
+        ? import.meta.env.VITE_UPLOAD_URL +
+          userResponse.user.pfp_url +
+          '-thumb.png'
+        : null,
     };
     return user;
   };
@@ -217,8 +218,9 @@ const useUser = () => {
       description: userResponse.description,
       user_activity: userResponse.user_activity,
       created_at: userResponse.created_at,
-      pfp_url:
-        import.meta.env.VITE_UPLOAD_URL + userResponse.pfp_url + '-thumb.png',
+      pfp_url: userResponse.pfp_url
+        ? import.meta.env.VITE_UPLOAD_URL + userResponse.pfp_url + '-thumb.png'
+        : null,
     };
     return user;
   };
@@ -335,7 +337,7 @@ const useChat = () => {
         Authorization: 'Bearer ' + token,
       },
     };
-    const chats = await fetchData<ChatResponse[]>(
+    const chats = await fetchData<ChatResponse[] | MessageResponse>(
       import.meta.env.VITE_MEDIA_API + '/chat',
       options,
     );
@@ -374,10 +376,42 @@ const useChat = () => {
     return messageRes;
   };
 
+  const createChatConversation = async (
+    token: string,
+    receiver_id: number,
+    post_id: number | null,
+  ) => {
+    // get all my chats
+    const chats = await getChatConversations(token);
+    // find out if chat already exists, user is receiver or sender
+    if (chats && !('message' in chats)) {
+      const chat = chats.find(
+        (chat) =>
+          chat.receiver_id === receiver_id || chat.sender_id === receiver_id,
+      );
+      if (chat) {
+        return chat;
+      }
+    }
+    const options: RequestInit = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+      body: JSON.stringify({post_id}),
+    };
+    return await fetchData<MessageResponse>(
+      import.meta.env.VITE_MEDIA_API + '/chat/' + receiver_id,
+      options,
+    );
+  };
+
   return {
     getChatMessages,
     addChatMessage,
     getChatConversations,
+    createChatConversation,
   };
 };
 

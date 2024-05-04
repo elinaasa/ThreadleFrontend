@@ -254,6 +254,60 @@ td img {
 .media-row h3 {
   padding: 0 0 1rem 1rem;
 }
+.media-contact-td {
+  width: 100%;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+.media-contact-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+.media-contact-container img {
+  width: 30px;
+  height: 30px;
+}
+.media-contact-container p {
+  white-space: nowrap;
+}
+
+.notification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.notification-item label {
+  margin-right: 10px;
+}
+
+.notification-item button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.notification-item button:hover {
+  background-color: #0056b3;
+}
+.mark-as-read {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 10px;
+}
 
 @media screen and (max-width: 700px) {
   .container {

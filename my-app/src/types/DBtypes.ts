@@ -36,10 +36,12 @@ type CustomizeCredentials = {
   user_activity?: string;
   user_level_id?: number;
   description?: string;
+  pfp_url?: string | null;
 };
 
 type Chats = {
   chat_id: number;
+  post_id: number | null;
   sender_id: number;
   receiver_id: number;
   created_at: Date | string;

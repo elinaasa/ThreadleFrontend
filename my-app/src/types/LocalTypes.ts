@@ -1,4 +1,5 @@
 import {ChatMessages, User, UserWithNoPassword} from './DBtypes';
+import {ChatResponse, MessageResponse} from './MessageTypes';
 export type Credentials = Pick<User, 'username' | 'password'>;
 
 export type AuthContextType = {
@@ -13,6 +14,11 @@ export type ChatContextType = {
   chatId: number | null;
   handleSetChatId: (id: number) => void;
   handleGetChatMessages: () => void;
+  handleCreateChatConversation: (
+    token: string,
+    receiver_id: number,
+    post_id: number | null,
+  ) => Promise<MessageResponse | ChatResponse | null>;
   handleAddChatMessage: (
     token: string,
     sender_id: number,
