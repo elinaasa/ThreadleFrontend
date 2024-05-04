@@ -230,6 +230,18 @@ a {
   margin: 0 0 1rem 0;
 }
 
+.tags a {
+  color: #424242;
+  border: #424242 1px solid;
+  border-radius: 30px;
+  padding: 0.2rem 1rem;
+  margin: 0.3rem 0.1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: small;
+  letter-spacing: 0.5px;
+}
+
 button {
   cursor: pointer;
 }
@@ -279,6 +291,7 @@ td img {
   transition: 0.3s ease-in-out;
   cursor: pointer;
 }
+
 .media-contact-container {
   width: 100%;
   display: flex;
@@ -292,6 +305,7 @@ td img {
 }
 .media-contact-container p {
   white-space: nowrap;
+  text-transform: uppercase;
 }
 
 .notification-item {
@@ -330,9 +344,9 @@ td img {
 }
 
 @media screen and (max-width: 700px) {
-  /* .container {
+  .container {
     display: block;
-  } */
+  }
   .artist-img {
     padding: 0px;
     padding-left: 10px;

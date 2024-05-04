@@ -89,7 +89,6 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
           </td>
         )}
       </div>
-
       <td>{item.description}</td>
       <td>{formatDistanceToNow(item.created_at)}</td>
       <td className="tags">
