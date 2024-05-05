@@ -57,8 +57,9 @@
 # ...
 
 # Tietokanta rakenne
-![Tietokanta](./public/tietokanta.png 'Tietokanta')
+
+![Tietokanta](/public/tietokanta.png)
 
 # Käyttöliittymä kuvia
 
-![Example Image](/images/example.jpg 'This is an example image')
+![Example Image](/images/example.jpg)
