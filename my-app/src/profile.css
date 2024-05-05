@@ -22,13 +22,24 @@
 }
 
 .edit-icons {
-  margin: 10px;
   list-style: none;
 }
 
 .edit-icons img {
+  margin: 10px;
   width: 30px;
   height: 30px;
+}
+.bookmark-svg {
+  width: 40px !important;
+  height: 40px !important;
+  margin: 0 !important;
+}
+.folder-a {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .p-text {
