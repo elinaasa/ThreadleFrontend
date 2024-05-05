@@ -80,7 +80,7 @@ const Messages = () => {
           <button
             className="back-button"
             onClick={() => {
-              navigate(-1);
+              navigate('/Chats');
             }}
           >
             <img src={'../keyboard-enter-return.svg'} alt="search" />

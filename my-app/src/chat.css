@@ -10,6 +10,7 @@
   list-style-type: none;
   padding: 0;
   margin-bottom: 70px;
+  margin-top: 65px;
 }
 
 .message {
@@ -129,7 +130,7 @@
   margin-left: 10px;
   padding: 0 20px;
   border-radius: 8px;
-  background-color: #007bff;
+  background-color: #eca57d;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
@@ -143,8 +144,12 @@
 .chat-title {
   display: flex;
   align-items: center;
+  height: 65px;
+  position: fixed;
+  background-color: #fff;
 }
 
 .chat-title button {
   height: 30px;
+  color: black;
 }
