@@ -40,6 +40,7 @@ const Single = () => {
   return (
     <>
       <div className="single-container">
+        <h2 onClick={() => openProfile(item.user_id)}>{item.username} </h2>
         {item.media_type.includes('video') ? (
           <video controls src={item.filename}></video>
         ) : (
@@ -48,7 +49,7 @@ const Single = () => {
         <div className="single-info-container">
           <h3>{item.title}</h3>
           <p>{item.description}</p>
-          <p onClick={() => openProfile(item.user_id)}>{item.username} </p>
+
           <p>{formatDistanceToNow(item.created_at)} ago</p>
           <div>
             <p className="tags">

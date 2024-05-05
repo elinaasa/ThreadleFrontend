@@ -382,9 +382,6 @@ td img {
   align-items: center;
 }
 
-.media-row-title a {
-}
-
 .media-contact-container {
   display: flex;
   justify-content: end;
@@ -439,7 +436,6 @@ td img {
   padding: 0.3rem 1rem;
   cursor: pointer;
   display: flex;
-  box-shadow: 2px 2px 1px #424242;
 }
 
 .back-button img {
