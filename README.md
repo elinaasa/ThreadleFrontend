@@ -13,7 +13,7 @@
 ## testaustunnukset voi itse luoda :3
 ## ...
 
-# mahdolliset bugit/ongelmat
+## mahdolliset bugit/ongelmat
 ### haussa tekstit eivät näy kaikilla selaimilla? ei tiedetä syytä.
 ### profiilikuvan vaihto ei aina onnistu.
 
