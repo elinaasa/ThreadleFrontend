@@ -1,5 +1,6 @@
 import {formatDistanceToNow} from 'date-fns';
 import {PostItem} from '../types/DBtypes';
+import {Link} from 'react-router-dom';
 
 const SingleView = (props: {
   item: PostItem;

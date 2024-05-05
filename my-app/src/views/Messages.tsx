@@ -78,6 +78,9 @@ const Messages = () => {
         <div>
           <button onClick={() => navigate('/Chats')}>Back</button>
         </div>
+        <div>
+          <h2>Chat from post {}</h2>
+        </div>
         <ul className="chat-list">
           {chatMessages &&
             chatMessages.length > 0 &&
