@@ -569,7 +569,11 @@ const useTags = () => {
 };
 
 const useTheme = () => {
-  const postTheme = async (token: string, color1: string, font1?: string) => {
+  const postTheme = async (
+    token: string,
+    color1: string | null,
+    font1?: string | null,
+  ) => {
     const options: RequestInit = {
       method: 'POST',
       headers: {
