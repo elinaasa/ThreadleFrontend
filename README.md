@@ -58,7 +58,7 @@
 
 # Tietokanta rakenne
 
-![Tietokanta](/public/tietokanta.png)
+![Tietokanta](my-app/public/tietokanta.png)
 
 # Käyttöliittymä kuvia
 
