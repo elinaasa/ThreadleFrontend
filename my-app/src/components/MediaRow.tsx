@@ -96,17 +96,19 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
             )}
         </td> */}
       </td>
-      <td>
+      <td style={{position: 'relative'}}>
+        {item.user_id !== user?.user_id && (
+          <td className="media-contact-td" onClick={openChat}>
+            <div style={{position: 'relative'}}>
+              <div className="media-contact-container">
+                <img src="../chat.svg" alt="chatIcon" />
+                <p>Ask about Item</p>
+              </div>
+            </div>
+          </td>
+        )}
         <img className="mediaRow-img" src={item.thumbnail} alt={item.title} />
       </td>
-      {item.user_id !== user?.user_id && (
-        <td className="media-contact-td" onClick={openChat}>
-          <div className="media-contact-container">
-            <img src="../chat.svg" alt="chatIcon" />
-            <p>Ask about Item</p>
-          </div>
-        </td>
-      )}
       <Link className="media-row-title" to="/single" state={item}>
         {item.title}
       </Link>
