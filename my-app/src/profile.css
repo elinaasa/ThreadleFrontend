@@ -315,6 +315,10 @@
 }
 .mainpage {
   height: 100%;
+  min-height: 100vh;
+}
+.theme-container {
+  min-height: 100vh;
 }
 
 .upload {

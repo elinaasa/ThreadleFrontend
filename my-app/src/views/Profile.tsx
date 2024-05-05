@@ -293,7 +293,7 @@ const Profile = (params: {
                     <img
                       onClick={() => highlightMedia(item)}
                       className="p-images-star"
-                      src="./Star.svg"
+                      src="./star.svg"
                       alt="highlight"
                     />
                   </div>

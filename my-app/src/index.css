@@ -396,7 +396,9 @@ td img {
   background-color: var(--white-smoke);
   width: 150px;
   position: absolute;
-  right: 10%;
+  /* right: 10%; */
+  right: 0;
+  bottom: 0;
 }
 
 .media-contact-container img {
@@ -408,6 +410,9 @@ td img {
   margin: 0;
   font-size: 12px;
   text-transform: uppercase;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .media-contact-container p {
