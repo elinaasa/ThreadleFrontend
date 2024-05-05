@@ -69,7 +69,7 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
         <div className="media-info-user">
           <td>
             <img
-              className="media-row-img"
+              className="profile-img"
               src={userPfp || './artist.png'}
               alt={item.title}
             />
@@ -97,7 +97,7 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
         </td> */}
       </td>
       <td>
-        <img src={item.thumbnail} alt={item.title} />
+        <img className="mediaRow-img" src={item.thumbnail} alt={item.title} />
       </td>
       {item.user_id !== user?.user_id && (
         <td className="media-contact-td" onClick={openChat}>
