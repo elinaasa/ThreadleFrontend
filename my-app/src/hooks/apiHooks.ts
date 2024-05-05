@@ -9,6 +9,7 @@ import {
   TagResult,
   NewMediaResponse,
   Theme,
+  Save,
 } from '../types/DBtypes';
 import {fetchData} from '../lib/functions';
 import {Credentials} from '../types/LocalTypes';
@@ -446,6 +447,63 @@ const useNotifications = () => {
   return {getNotifications, markNotificationAsRead};
 };
 
+const useSaves = () => {
+  const postSave = async (token: string, post_id: number) => {
+    const options: RequestInit = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+    };
+    return await fetchData<MessageResponse[]>(
+      import.meta.env.VITE_MEDIA_API + '/like/' + post_id,
+      options,
+    );
+  };
+  const deleteSave = async (token: string, post_id: number) => {
+    const options: RequestInit = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+    };
+    return await fetchData<MessageResponse[]>(
+      import.meta.env.VITE_MEDIA_API + '/like/' + post_id,
+      options,
+    );
+  };
+
+  const getSaves = async (token: string, post_id: number) => {
+    const options: RequestInit = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+    };
+    return await fetchData<{count: number}>(
+      import.meta.env.VITE_MEDIA_API + '/like/' + post_id,
+      options,
+    );
+  };
+  const getUserSave = async (token: string, post_id: number) => {
+    const options: RequestInit = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+    };
+    return await fetchData<Save | null>(
+      import.meta.env.VITE_MEDIA_API + '/like/userLike/' + post_id,
+      options,
+    );
+  };
+  return {postSave, deleteSave, getSaves, getUserSave};
+};
+
 const useTags = () => {
   const getTags = async () => {
     return await fetchData<TagResult[]>(
@@ -511,4 +569,5 @@ export {
   useNotifications,
   useTags,
   useTheme,
+  useSaves,
 };

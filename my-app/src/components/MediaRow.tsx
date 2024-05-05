@@ -4,6 +4,7 @@ import {useChatContext, useUserContext} from '../hooks/ContextHooks';
 import {useEffect, useState} from 'react';
 import {useTags, useUser} from '../hooks/apiHooks';
 import {formatDistanceToNow} from 'date-fns';
+import Saves from './Save';
 
 const MediaRow = (props: {item: MediaItemWithOwner}) => {
   const {item} = props;
@@ -65,16 +66,22 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
   return (
     <tr className="media-row">
       <td className="media-info">
-        <td>
-          <img
-            className="media-row-img"
-            src={userPfp || './artist.png'}
-            alt={item.title}
-          />
-        </td>
-        <td className="username" onClick={() => openProfile(item.user_id)}>
-          {item.username}
-        </td>
+        <div className="media-info-user">
+          <td>
+            <img
+              className="media-row-img"
+              src={userPfp || './artist.png'}
+              alt={item.title}
+            />
+          </td>
+          <td className="username" onClick={() => openProfile(item.user_id)}>
+            {item.username}
+          </td>
+        </div>
+
+        <div className="media-info-save">
+          <Saves item={item} />
+        </div>
         {/* <td className="media-buttons">
           {user &&
             (user.user_id === item.user_id || user.level_name === 'Admin') && (

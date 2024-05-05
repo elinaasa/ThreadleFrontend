@@ -194,9 +194,13 @@ body {
 
 .media-info {
   display: flex;
-  justify-content: flex-start;
-  gap: 10px;
+  justify-content: space-between;
   align-items: center;
+}
+.media-info-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .media-row-title {
   font-weight: bold;
@@ -211,6 +215,32 @@ body {
   width: 13px;
   height: 15px;
   margin: 3px;
+}
+.media-info-save {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.media-info-save-img {
+  width: 40px;
+  height: 40px;
+}
+
+.save-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+.save-container img {
+  height: 100%;
+}
+.save-count {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: bold;
 }
 
 .media-buttons button {
