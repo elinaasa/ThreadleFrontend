@@ -289,14 +289,16 @@ const Profile = (params: {
           {!profileViewMode && myMedia && myMedia.length > 0
             ? myMedia.map((item) => (
                 <div style={{position: 'relative'}}>
-                  <div className="p-images-star">
-                    <img
-                      onClick={() => highlightMedia(item)}
-                      className="p-images-star"
-                      src="./star.svg"
-                      alt="highlight"
-                    />
-                  </div>
+                  {!fetchUser && (
+                    <div className="p-images-star">
+                      <img
+                        onClick={() => highlightMedia(item)}
+                        className="p-images-star"
+                        src="./star.svg"
+                        alt="highlight"
+                      />
+                    </div>
+                  )}
                   <Link
                     className="p-image-container"
                     key={item.post_id}
