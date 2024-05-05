@@ -4,7 +4,7 @@ import {useFile, useTheme, useUser} from '../hooks/apiHooks';
 import {useCustomizeForm} from '../hooks/formHooks';
 import {CustomizeCredentials} from '../types/DBtypes';
 import Profile from './Profile';
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 const CustomizeProfile = () => {
   const {user} = useUserContext();

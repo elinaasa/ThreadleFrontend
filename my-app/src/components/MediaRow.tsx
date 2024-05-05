@@ -2,7 +2,7 @@ import {Link, useNavigate} from 'react-router-dom';
 import {MediaItemWithOwner, TagResult} from '../types/DBtypes';
 import {useChatContext, useUserContext} from '../hooks/ContextHooks';
 import {useEffect, useState} from 'react';
-import {useTags} from '../hooks/apiHooks';
+import {useTags, useUser} from '../hooks/apiHooks';
 import {formatDistanceToNow} from 'date-fns';
 
 const MediaRow = (props: {item: MediaItemWithOwner}) => {
@@ -13,10 +13,18 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
   const [tags, setTags] = useState<TagResult[] | null>([]);
   const navigate = useNavigate();
   const {handleCreateChatConversation, handleSetChatId} = useChatContext();
+  const [userPfp, setUserPfp] = useState<string | null>('');
+  const {getUserById} = useUser();
 
   const fetchTags = async (post_id: number) => {
     const tags = await getTagsByPostId(post_id);
     setTags(tags);
+  };
+  const fetchUserPfp = async () => {
+    const user = await getUserById(item.user_id);
+    if (user) {
+      setUserPfp(user.pfp_url);
+    }
   };
 
   const openProfile = async (id: number) => {
@@ -53,14 +61,23 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
 
   useEffect(() => {
     fetchTags(item.post_id);
+    fetchUserPfp();
+    // get user pfp
   }, []);
   return (
     <tr className="media-row">
       <td className="media-info">
+        <td>
+          <img
+            className="media-row-img"
+            src={userPfp || './artist.png'}
+            alt={item.title}
+          />
+        </td>
         <td className="username" onClick={() => openProfile(item.user_id)}>
           {item.username}
         </td>
-        <td className="media-buttons">
+        {/* <td className="media-buttons">
           {user &&
             (user.user_id === item.user_id || user.level_name === 'Admin') && (
               <>
@@ -72,7 +89,7 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
                 </button>
               </>
             )}
-        </td>
+        </td> */}
       </td>
       <td>
         <img src={item.thumbnail} alt={item.title} />
@@ -85,7 +102,7 @@ const MediaRow = (props: {item: MediaItemWithOwner}) => {
           </div>
         </td>
       )}
-      <Link to="/single" state={item}>
+      <Link className="media-row-title" to="/single" state={item}>
         {item.title}
       </Link>
       <td>{item.description}</td>
