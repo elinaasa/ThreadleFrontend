@@ -62,4 +62,4 @@
 
 # Käyttöliittymä kuvia
 
-![Example Image](/images/example.jpg)
+![front page](my-app/public/frontpage.png)
