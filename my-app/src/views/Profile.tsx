@@ -251,7 +251,7 @@ const Profile = (params: {
 
       {profileViewMode === false && highlight !== null ? (
         <div className="p-box">
-          <div className="hightlight-container">
+          <div className="highlight-container">
             <div className="inner-div">
               <img
                 className="highlight-img"
