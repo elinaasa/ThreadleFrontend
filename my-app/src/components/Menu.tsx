@@ -52,7 +52,7 @@ const Menu = (params: {closeMenu: () => void}) => {
           </>
         )}
         <li onClick={closeMenu} className="menu-li menu-li-2">
-          <Link to="/Settings">
+          <Link to="/customize">
             <img className="menu-img" src={'../asetukset.svg'} alt="settings" />
             Settings
           </Link>

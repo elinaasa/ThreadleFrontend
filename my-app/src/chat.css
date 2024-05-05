@@ -9,6 +9,7 @@
   width: 100%;
   list-style-type: none;
   padding: 0;
+  margin-bottom: 70px;
 }
 
 .message {
@@ -51,7 +52,13 @@
 .chats-ul li {
   margin-bottom: 10px;
   cursor: pointer;
+  padding: 1rem;
 }
+
+.chats-ul li:nth-child(odd) {
+  background-color: #f3f4f6;
+}
+
 .chat-thumbnail {
   width: 100px;
   height: 100px;
@@ -91,6 +98,7 @@
 
 .message-text {
   font-size: 14px;
+  margin: 0;
 }
 
 .message-form {
@@ -98,6 +106,8 @@
   border-radius: 8px;
   padding: 8px;
   background-color: #f3f4f6;
+  position: fixed;
+  bottom: 0;
 }
 
 .form {
@@ -122,4 +132,18 @@
   color: #fff;
   font-size: 16px;
   cursor: pointer;
+}
+
+.p-header h2 {
+  padding: 0 20px 0 10px;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.chat-title {
+  display: flex;
+  align-items: center;
+}
+
+.chat-title button {
+  height: 30px;
 }

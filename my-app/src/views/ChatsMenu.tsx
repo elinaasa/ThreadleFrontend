@@ -102,7 +102,7 @@ const ChatsMenu = () => {
 
   return (
     <div className="p-header">
-      <h2>Chats Menu</h2>
+      <h2>Messages</h2>
       <ul className="chats-ul">
         {conversations && conversations.length > 0 ? (
           conversations.map((chat: ChatResponse) => (

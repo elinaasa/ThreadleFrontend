@@ -75,11 +75,17 @@ const Messages = () => {
   return (
     <main style={{maxWidth: '1300px'}} className="p-header">
       <div className="container">
-        <div>
-          <button onClick={() => navigate('/Chats')}>Back</button>
-        </div>
-        <div>
+        <div className="chat-title">
           <h2>Chat from post {}</h2>
+          <button
+            className="back-button"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            <img src={'../keyboard-enter-return.svg'} alt="search" />
+            go back
+          </button>
         </div>
         <ul className="chat-list">
           {chatMessages &&
