@@ -55,13 +55,13 @@ const Layout = () => {
                 </div>
               </Link>
             </li>
-            <li onClick={closeMenu} className="nav-li">
+            <li onClick={closeMenu} className="nav-li nav-icons">
               <Link to="/login">
                 <img src={'../kayttaja.svg'} alt="profile" />
               </Link>
             </li>
             <li
-              className="nav-li nav-icons"
+              className="nav-li nav-icons menu-icon"
               onClick={() => setShowMenu(!showMenu)}
             >
               <a style={{cursor: 'pointer'}}>

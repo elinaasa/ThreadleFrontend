@@ -40,8 +40,8 @@ const Search = () => {
 
   return (
     <div className="p-header">
-      <h1>Search</h1>
-      <ul>
+      <h1 className="search">Search by tag</h1>
+      <ul className="tags-list">
         {tags &&
           tags.map((tag, index) => {
             return (

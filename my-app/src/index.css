@@ -1,6 +1,6 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 24px;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -12,6 +12,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
 }
 
 * {
@@ -44,6 +45,14 @@ body {
   height: 1.5rem;
 }
 
+.menu-icon {
+  display: flex;
+  align-items: center;
+}
+.menu-icon img {
+  height: 20px;
+}
+
 .footer {
   border: #1e1e1e;
   border-top: 2px solid black;
@@ -67,10 +76,9 @@ body {
   margin-top: 10px;
   margin-left: 10px;
   margin-bottom: 0;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Roboto Mono', monospace;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 600;
   line-height: 25px;
   letter-spacing: 0.15000000596046448px; /* mikä xD */
   text-align: left;
@@ -242,9 +250,43 @@ a {
   letter-spacing: 0.5px;
 }
 
+.search {
+  margin: 4.5rem 0 1rem 2rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 24px;
+}
+
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: center;
+  padding: 20px;
+  max-width: 500px;
+}
+
+.tags-list button {
+  border: #424242 1.5px solid;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 0.7rem 2rem;
+  margin: 0.3rem 0.1rem;
+  letter-spacing: 0.15px;
+}
+
+.tags-list:nth-child(3) {
+  border-color: #007bff;
+  border-style: dashed;
+}
+
+.tags-list label {
+  cursor: pointer;
+}
+
 button {
   cursor: pointer;
 }
+
 table {
   width: 100%;
 }
