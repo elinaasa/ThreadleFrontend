@@ -12,53 +12,53 @@
 
 # ...
 
-# testaustunnukset voi itse luoda :3
+## testaustunnukset voi itse luoda :3
 
-# mahdolliset bugit/ongelmat
+## mahdolliset bugit/ongelmat
 
-# . haussa tekstit eivät näy kaikilla selaimilla? ei tiedetä syytä.
+### haussa tekstit eivät näy kaikilla selaimilla? ei tiedetä syytä.
 
-# . profiilikuvan vaihto ei aina onnistu.
+### profiilikuvan vaihto ei aina onnistu.
 
-# ...
+...
 
-# Toteutetut vaatimukset/toiminnalisuudet
+## Toteutetut vaatimukset/toiminnalisuudet
 
-# . Kirjautumaton käyttäjä voi selata sovelluksen etusivua
+### Kirjautumaton käyttäjä voi selata sovelluksen etusivua
 
-# . Kirjautumaton käyttäjä voi tehdä käyttäjätunnukset
+### Kirjautumaton käyttäjä voi tehdä käyttäjätunnukset
 
-# . Kirjautumaton käyttäjä voi tutustua sivustoon ennen tunnusten luomista
+### Kirjautumaton käyttäjä voi tutustua sivustoon ennen tunnusten luomista
 
-# . Kirjautumaton käyttäjä voi kirjautua sovellukseen sisään tunnuksillaan
+### Kirjautumaton käyttäjä voi kirjautua sovellukseen sisään tunnuksillaan
 
-# . Kirjautunut käyttäjä pystyy selaamaan sovellusta vapaasti ja tekemään hakuja hakutoiminnon kautta
+### Kirjautunut käyttäjä pystyy selaamaan sovellusta vapaasti ja tekemään hakuja hakutoiminnon kautta
 
-# . Kirjautunut käyttäjä voi määritellä profiiliinsa “ostaja” tai “myyjä” -statuksen
+### Kirjautunut käyttäjä voi määritellä profiiliinsa “ostaja” tai “myyjä” -statuksen
 
-# . Kirjautunut käyttäjä pystyy lähettämään yksityisviestejä muille käyttäjille
+### Kirjautunut käyttäjä pystyy lähettämään yksityisviestejä muille käyttäjille
 
-# . Myyjä pystyy lisäämään profiiliinsa myynti-ilmoituksia
+### Myyjä pystyy lisäämään profiiliinsa myynti-ilmoituksia
 
-# . Myyjä pystyy lataamaan kuvia myymistään tuotteista
+### Myyjä pystyy lataamaan kuvia myymistään tuotteista
 
-# . Myyjä pystyy lisäämään tuotekohtaisesti tietoja tuotteesta, kuten valmistusmateriaalin ja koon tuotteen lisätietoihin
+### Myyjä pystyy lisäämään tuotekohtaisesti tietoja tuotteesta, kuten valmistusmateriaalin ja koon tuotteen lisätietoihin
 
-# . Myyjä pystyy ilmaisemaan profiilissaan aktiivisuustason kolmesta vaihtoehdosta
+### Myyjä pystyy ilmaisemaan profiilissaan aktiivisuustason kolmesta vaihtoehdosta
 
-# . Sovellus sisältää suodatinominaisuuden tarkentavia hakuja varten
+### Sovellus sisältää suodatinominaisuuden tarkentavia hakuja varten
 
-# . Sovelluksen tulee olla suomenkielinen
+### Sovelluksen tulee olla suomenkielinen
 
-# . Sovelluksen käytön tulee olla helppoa
+### Sovelluksen käytön tulee olla helppoa
 
-# . Sovelluksen fontin tulee olla selkeä ja tarpeeksi iso
+### Sovelluksen fontin tulee olla selkeä ja tarpeeksi iso
 
 # ...
 
 # Tietokanta rakenne
 
-![Tietokanta](my-app/public/tietokanta.png)
+![Tietokanta](/public/tietokanta.png)
 
 # Käyttöliittymä kuvia
 
