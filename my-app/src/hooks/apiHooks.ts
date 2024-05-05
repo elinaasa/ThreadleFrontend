@@ -103,6 +103,23 @@ const useMedia = () => {
       return null;
     }
   };
+  const addHighlight = async (post_id: number, token: string) => {
+    try {
+      const options = {
+        method: 'PUT',
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      };
+      return await fetchData<MessageResponse>(
+        import.meta.env.VITE_MEDIA_API + '/media/highlight/' + post_id,
+        options,
+      );
+    } catch (error) {
+      console.error('addHighlight failed', error);
+      return null;
+    }
+  };
 
   useEffect(() => {
     getMedia();
@@ -170,6 +187,7 @@ const useMedia = () => {
   return {
     mediaArray,
     getHighlightById,
+    addHighlight,
     getMyMedia,
     getMedia,
     postMedia,

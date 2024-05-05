@@ -16,7 +16,7 @@ const Profile = (params: {
   const {user} = useUserContext();
   const {getUserTheme} = useTheme();
   const {getUserById} = useUser();
-  const {getMyMedia, getHighlightById} = useMedia();
+  const {getMyMedia, getHighlightById, addHighlight} = useMedia();
   const [myMedia, setMyMedia] = useState<MediaItemWithOwner[] | null>([]);
   const [highlight, setHighlight] = useState<MediaItemWithOwner | null>(null);
   const [profileViewMode, setProfileViewMode] = useState<boolean>(false); // Disable profile controls on profile view mode only
@@ -55,9 +55,6 @@ const Profile = (params: {
     };
     setTheme(themeToCredentials);
   };
-  useEffect(() => {
-    console.log('highlight123', highlight);
-  }, [highlight]);
 
   const fetchUserData = async () => {
     if (!profileId || !user) return;
@@ -89,6 +86,16 @@ const Profile = (params: {
       }
     }
     navigate(`/messages`);
+  };
+
+  const highlightMedia = async (item: MediaItemWithOwner) => {
+    console.log('highlightMedia');
+    const token = localStorage.getItem('token');
+    if (!token) return;
+    const highlightResponse = await addHighlight(item.post_id, token);
+    if (highlightResponse) {
+      setHighlight(item);
+    }
   };
 
   useEffect(() => {
@@ -281,13 +288,28 @@ const Profile = (params: {
         <div className="grid-container">
           {!profileViewMode && myMedia && myMedia.length > 0
             ? myMedia.map((item) => (
-                <Link key={item.post_id} to="/single" state={item}>
-                  <img
-                    className="p-images"
-                    src={item.thumbnail}
-                    alt={item.title}
-                  />
-                </Link>
+                <div style={{position: 'relative'}}>
+                  <div className="p-images-star">
+                    <img
+                      onClick={() => highlightMedia(item)}
+                      className="p-images-star"
+                      src="./star.svg"
+                      alt="highlight"
+                    />
+                  </div>
+                  <Link
+                    className="p-image-container"
+                    key={item.post_id}
+                    to="/single"
+                    state={item}
+                  >
+                    <img
+                      className="p-images"
+                      src={item.thumbnail}
+                      alt={item.title}
+                    />
+                  </Link>
+                </div>
               ))
             : profileViewMode === true && (
                 <>
