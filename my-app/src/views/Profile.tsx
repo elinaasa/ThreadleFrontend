@@ -181,21 +181,30 @@ const Profile = (params: {
 
       <div className="p-div">
         <div>
-          {!fetchUser ? (
-            <img
-              className="p-img"
-              src={user?.pfp_url || '../artist.png'}
-              alt="artist"
-            />
-          ) : (
-            <img
-              className="p-img"
-              src={fetchUser?.pfp_url || '../artist.png'}
-              alt="artist"
-            />
-          )}
-
-          <img className="p-edit" src="../edit.svg" alt="edit" />
+          <div className="profile-pic-container">
+            {!fetchUser ? (
+              <img
+                className="p-img"
+                src={user?.pfp_url || '../artist.png'}
+                alt="artist"
+              />
+            ) : (
+              <img
+                className="p-img"
+                src={fetchUser?.pfp_url || '../artist.png'}
+                alt="artist"
+              />
+            )}
+            <div className="p-edit profile-edit">
+              {/* {profileViewMode === false ? (
+                <Link to="/customize">
+                  <img src={'../edit.svg'} alt="settings" />
+                </Link>
+              ) : (
+                <img src={'../edit.svg'} alt="settings" />
+              )} */}
+            </div>
+          </div>
 
           <img src="" alt="" />
           <div className="username-row">

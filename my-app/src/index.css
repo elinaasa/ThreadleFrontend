@@ -269,6 +269,7 @@ a {
   border-radius: 30px;
   padding: 0.2rem 1rem;
   cursor: pointer;
+  color: #000;
 }
 
 .tags {
@@ -295,6 +296,7 @@ a {
   cursor: pointer;
   font-size: small;
   letter-spacing: 0.15px;
+  color: #000;
 }
 
 .search {
