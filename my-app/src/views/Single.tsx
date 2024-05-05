@@ -39,34 +39,35 @@ const Single = () => {
 
   return (
     <>
-      <h3>{item.title}</h3>
-      {item.media_type.includes('video') ? (
-        <video controls src={item.filename}></video>
-      ) : (
-        <img src={item.filename} alt={item.title} />
-      )}
-      <p>{item.description}</p>
-      <p onClick={() => openProfile(item.user_id)}>
-        Uploaded at: {new Date(item.created_at).toLocaleString('fi-FI')}, by:{' '}
-        {item.username}{' '}
-      </p>
-      <p>{item.filesize}</p>
-      <p>{item.media_type}</p>
-      <p>{formatDistanceToNow(item.created_at)} ago</p>
-      <div>
-        <p className="tags">
-          {tags?.map((tag) => (
-            <Link to={'/tagSearch/' + tag.tag_name}>{tag.tag_name}</Link>
-          ))}
-        </p>
+      <div className="single-container">
+        {item.media_type.includes('video') ? (
+          <video controls src={item.filename}></video>
+        ) : (
+          <img className="single-img" src={item.filename} alt={item.title} />
+        )}
+        <div className="single-info-container">
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+          <p onClick={() => openProfile(item.user_id)}>{item.username} </p>
+          <p>{formatDistanceToNow(item.created_at)} ago</p>
+          <div>
+            <p className="tags">
+              {tags?.map((tag) => (
+                <Link to={'/tagSearch/' + tag.tag_name}>{tag.tag_name}</Link>
+              ))}
+            </p>
+          </div>
+          <button
+            className="back-button"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            <img src={'../keyboard-enter-return.svg'} alt="search" />
+            go back
+          </button>
+        </div>
       </div>
-      <button
-        onClick={() => {
-          navigate(-1);
-        }}
-      >
-        go back
-      </button>
     </>
   );
 };
