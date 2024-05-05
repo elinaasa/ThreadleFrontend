@@ -19,6 +19,7 @@
   justify-content: space-evenly;
   border-top: #000 2px solid;
   height: 50px;
+  z-index: 1000;
 }
 
 .edit-icons {
@@ -163,9 +164,6 @@
 }
 .username-row .p-h1 {
   margin: 0 !important;
-}
-.theme-container {
-  height: 100vh;
 }
 .customize-container {
   display: flex;
@@ -315,6 +313,9 @@
     Comic Sans MS,
     cursive,
     sans-serif;
+}
+.mainpage {
+  height: 100%;
 }
 
 .upload {
