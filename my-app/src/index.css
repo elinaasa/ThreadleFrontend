@@ -68,6 +68,7 @@ body {
   width: 100%;
   border-bottom: 2px solid black;
   background-color: #fff;
+  z-index: 1000;
 }
 
 .nav-text {
@@ -478,6 +479,24 @@ td img {
   list-style: none;
   padding: 0;
   margin: 0 10px;
+}
+.media-row-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.folder-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem;
+}
+.no-saves-text {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  white-space: nowrap;
 }
 
 @media screen and (max-width: 700px) {

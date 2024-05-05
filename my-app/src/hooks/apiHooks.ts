@@ -448,6 +448,19 @@ const useNotifications = () => {
 };
 
 const useSaves = () => {
+  const getUserSavedPosts = async (token: string) => {
+    const options: RequestInit = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+    };
+    return await fetchData<PostItem[] | null>(
+      import.meta.env.VITE_MEDIA_API + '/like',
+      options,
+    );
+  };
   const postSave = async (token: string, post_id: number) => {
     const options: RequestInit = {
       method: 'POST',
@@ -501,7 +514,7 @@ const useSaves = () => {
       options,
     );
   };
-  return {postSave, deleteSave, getSaves, getUserSave};
+  return {postSave, deleteSave, getSaves, getUserSave, getUserSavedPosts};
 };
 
 const useTags = () => {

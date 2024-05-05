@@ -135,11 +135,19 @@ const Profile = (params: {
           <div className="p-settings">
             <li className="edit-icons">
               {profileViewMode === false ? (
-                <Link to="/folder">
-                  <img src={'../kansio.svg'} alt="folder" />
+                <Link className="folder-a" to="/folder">
+                  <img
+                    className="bookmark-svg"
+                    src={'../bookmark.svg'}
+                    alt="folder"
+                  />
                 </Link>
               ) : (
-                <img src={'../kansio.svg'} alt="folder" />
+                <img
+                  className="bookmark-svg"
+                  src={'../bookmark.svg'}
+                  alt="folder"
+                />
               )}
             </li>
             <li className="edit-icons">

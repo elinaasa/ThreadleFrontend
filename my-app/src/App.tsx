@@ -15,6 +15,7 @@ import Search from './views/Search';
 import Notifications from './views/Notifications';
 import CustomizeProfile from './views/CustomizeProfile';
 import TagSearch from './views/TagSearch';
+import Folder from './views/Folder';
 
 const App = () => {
   return (
@@ -44,6 +45,7 @@ const App = () => {
                   <Route path="/notifications" element={<Notifications />} />
                   <Route path="/customize" element={<CustomizeProfile />} />
                   <Route path="/tagSearch/:tag" element={<TagSearch />} />
+                  <Route path="/folder" element={<Folder />} />
 
                   {/*Lisätään myöhemmin views kansioon*/}
 
