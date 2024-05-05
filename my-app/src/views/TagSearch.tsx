@@ -42,8 +42,10 @@ const TagSearch = () => {
           <h1 className="home-text">Threadle</h1>
         </div>
         <div>
-          <button onClick={() => navigate('/Search')}>Back to search</button>
-          <h1>Searching tag: {tag}</h1>
+          <button className="back-button" onClick={() => navigate('/Search')}>
+            Back to search
+          </button>
+          <h1 className="Searchh2">Searching tag: {tag}</h1>
         </div>
         <table>
           <tbody>
