@@ -1,19 +1,36 @@
 import {useEffect, useState} from 'react';
-import {useSaves} from '../hooks/apiHooks';
-import {PostItem} from '../types/DBtypes';
+import {useSaves, useUser} from '../hooks/apiHooks';
+import {MediaItemWithOwner, UserWithNoPassword} from '../types/DBtypes';
 import {Link} from 'react-router-dom';
 
 const Folder = () => {
   const {getUserSavedPosts} = useSaves();
+  const {getUserById} = useUser();
 
-  const [savedPosts, setSavedPosts] = useState<PostItem[]>([]);
+  const [saved, setSaved] = useState<MediaItemWithOwner[]>([]);
 
   const fetchSavedPosts = async () => {
     const token = localStorage.getItem('token');
     if (token) {
       const savedPosts = await getUserSavedPosts(token);
       if (savedPosts && savedPosts.length > 0) {
-        setSavedPosts(savedPosts);
+        // setSavedPosts(savedPosts);
+        // get user info for each post
+        const users = await Promise.all(
+          savedPosts.map((post) => getUserById(post.user_id)),
+        );
+
+        // convert postItem to MediaItemWithOwner
+        const savedWithUser: MediaItemWithOwner[] = savedPosts.map(
+          (post, index) => {
+            const user: UserWithNoPassword = users[index];
+            return {
+              ...post,
+              username: user.username,
+            };
+          },
+        );
+        setSaved(savedWithUser);
       }
     }
   };
@@ -27,8 +44,8 @@ const Folder = () => {
       <div>
         <div className="media-container">
           <div className="grid-container">
-            {savedPosts && savedPosts.length > 0 ? (
-              savedPosts.map((item) => (
+            {saved && saved.length > 0 ? (
+              saved.map((item) => (
                 <Link key={item.post_id} to="/single" state={item}>
                   <img
                     className="p-images"

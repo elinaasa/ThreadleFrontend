@@ -41,6 +41,20 @@
   justify-content: center;
   align-items: center;
 }
+.p-images-star {
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 4px 4px 0 0;
+  z-index: 1;
+  cursor: pointer;
+}
+.p-image-container {
+  position: relative;
+}
 
 .p-text {
   max-width: 500px;
